@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UFDR_Report reportType="Logical" extractionDate="2025-10-02T11:30:00Z">
+    <CaseInfo>
+        <CaseNumber>FR-2025-0451</CaseNumber>
+        <Investigator>Officer Jane Smith</Investigator>
+    </CaseInfo>
+    <DeviceInfo>
+        <Model>Google Pixel 8 Pro</Model>
+        <IMEI>350011223344556</IMEI>
+        <OS>Android 14</OS>
+        <Owner>John 'Alias' Doe</Owner>
+        <PhoneNumber>+12025550104</PhoneNumber>
+    </DeviceInfo>
+
+    <CallLogs>
+        <Call id="1">
+            <Timestamp>2025-09-28T14:30:15Z</Timestamp>
+            <From>+12025550104</From>
+            <To>+442079460958</To> <Direction>Outgoing</Direction>
+            <DurationSeconds>312</DurationSeconds>
+            <Status>Answered</Status>
+        </Call>
+        <Call id="2">
+            <Timestamp>2025-09-29T09:12:45Z</Timestamp>
+            <From>+12025550177</From>
+            <To>+12025550104</To>
+            <Direction>Incoming</Direction>
+            <DurationSeconds>94</DurationSeconds>
+            <Status>Answered</Status>
+        </Call>
+        <Call id="3">
+            <Timestamp>2025-10-01T15:00:21Z</Timestamp>
+            <From>+12025550104</From>
+            <To>+12025550199</To>
+            <Direction>Outgoing</Direction>
+            <DurationSeconds>0</DurationSeconds>
+            <Status>Missed</Status>
+        </Call>
+    </CallLogs>
+
+    <Messages>
+        <Message id="sms-1" type="SMS">
+            <Timestamp>2025-09-29T11:05:00Z</Timestamp>
+            <From>+12025550177</From>
+            <To>+12025550104</To>
+            <Body>Did you get the package?</Body>
+            <Status>Read</Status>
+        </Message>
+        <Message id="sms-2" type="SMS">
+            <Timestamp>2025-09-29T11:05:45Z</Timestamp>
+            <From>+12025550104</From>
+            <To>+12025550177</To>
+            <Body>Yes, received. All good.</Body>
+            <Status>Sent</Status>
+        </Message>
+    </Messages>
+
+    <ChatLogs application="SecureChat">
+        <Conversation participant_numbers="+12025550199">
+            <Message id="chat-1">
+                <Timestamp>2025-09-30T20:15:10Z</Timestamp>
+                <Sender>+12025550199</Sender>
+                <Recipient>+12025550104</Recipient>
+                <Content>Hey, need to send the payment. What's the address again?</Content>
+            </Message>
+            <Message id="chat-2">
+                <Timestamp>2025-09-30T20:16:02Z</Timestamp>
+                <Sender>+12025550104</Sender>
+                <Recipient>+12025550199</Recipient>
+                <Content>Sure. Use this BTC address: bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq</Content> </Message>
+            <Message id="chat-3">
+                <Timestamp>2025-09-30T20:18:30Z</Timestamp>
+                <Sender>+12025550104</Sender>
+                <Recipient>+12025550199</Recipient>
+                <Content>Also have an ETH one if you prefer: 0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B</Content> </Message>
+             <Message id="chat-4">
+                <Timestamp>2025-09-30T20:19:01Z</Timestamp>
+                <Sender>+12025550199</Sender>
+                <Recipient>+12025550104</Recipient>
+                <Content>Got it. Sending now.</Content>
+            </Message>
+        </Conversation>
+        <Conversation participant_numbers="+442079460958"> <Message id="chat-5">
+                <Timestamp>2025-10-01T09:00:45Z</Timestamp>
+                <Sender>+442079460958</Sender>
+                <Recipient>+12025550104</Recipient>
+                <Content>The client is ready. The meetup is at the usual spot, tomorrow at 10 PM. Be discreet.</Content>
+            </Message>
+             <Message id="chat-6">
+                <Timestamp>2025-10-01T09:02:11Z</Timestamp>
+                <Sender>+12025550104</Sender>
+                <Recipient>+442079460958</Recipient>
+                <Content>Confirmed. I will have the device. Make sure the transfer is untraceable.</Content>
+            </Message>
+        </Conversation>
+    </ChatLogs>
+
+    <Contacts>
+        <Contact id="c1">
+            <Name>Crypto Alex</Name>
+            <PhoneNumber>+12025550199</PhoneNumber>
+            <Email>alex.crypto@proton.me</Email>
+        </Contact>
+        <Contact id="c2">
+            <Name>Mr. London</Name>
+            <PhoneNumber>+442079460958</PhoneNumber>
+            <Email/>
+        </Contact>
+        <Contact id="c3">
+            <Name>Mark P</Name>
+            <PhoneNumber>+12025550177</PhoneNumber>
+            <Email>mark.p@gmail.com</Email>
+        </Contact>
+    </Contacts>
+    
+    <ImageFiles>
+        <Image id="img1">
+            <FileName>IMG_20250925_174512.jpg</FileName>
+            <Path>/DCIM/Camera/</Path>
+            <TimestampCreated>2025-09-25T17:45:12Z</TimestampCreated>
+            <GPSLatitude>22.7196</GPSLatitude>
+            <GPSLongitude>75.8577</GPSLongitude>
+            <Notes>Image of a warehouse location.</Notes>
+        </Image>
+    </ImageFiles>
+</UFDR_Report>

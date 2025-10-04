@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -6,10 +6,14 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  useColorScheme,
 } from 'react-native';
 import { Upload, FileText, Search, TrendingUp, Clock, CircleCheck as CheckCircle, TriangleAlert as AlertTriangle } from 'lucide-react-native';
 
 export default function HomeScreen() {
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === 'dark';
+
   const [recentCases] = useState([
     {
       id: '001',
@@ -68,7 +72,7 @@ export default function HomeScreen() {
       case 'Completed':
         return <CheckCircle size={16} color="#10b981" />;
       case 'Processing':
-        return <Clock size={16} color="#f59e0b" />;
+        return <Clock size={16} color={isDarkMode ? '#f59e0b' : '#15803d'} />;
       default:
         return <AlertTriangle size={16} color="#ef4444" />;
     }
@@ -79,31 +83,79 @@ export default function HomeScreen() {
       case 'Completed':
         return '#10b981';
       case 'Processing':
-        return '#f59e0b';
+        return isDarkMode ? '#f59e0b' : '#15803d';
       default:
         return '#ef4444';
     }
   };
 
+  // Dynamic styles based on theme
+  const dynamicStyles = {
+    container: {
+      backgroundColor: isDarkMode ? '#0f172a' : '#ffffff',
+    },
+    header: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#f8faf9',
+    },
+    title: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    subtitle: {
+      color: '#64748b',
+    },
+    sectionTitle: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    actionCard: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
+    },
+    actionTitle: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    statCard: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
+    },
+    statValue: {
+      color: isDarkMode ? '#f1f5f9' : '#15803d',
+    },
+    caseCard: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
+    },
+    caseName: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    progressBar: {
+      backgroundColor: isDarkMode ? '#334155' : '#e2e8f0',
+    },
+    progressFill: {
+      backgroundColor: isDarkMode ? '#f59e0b' : '#15803d',
+    },
+  };
+
+  const primaryIconColor = isDarkMode ? '#f59e0b' : '#15803d';
+
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <View style={styles.header}>
-        <Text style={styles.title}>UFDR Forensic Analysis</Text>
-        <Text style={styles.subtitle}>AI-Powered Digital Investigation Platform</Text>
+    <ScrollView style={[styles.container, dynamicStyles.container]} showsVerticalScrollIndicator={false}>
+      <View style={[styles.header, dynamicStyles.header]}>
+        <Text style={[styles.title, dynamicStyles.title]}>UFDR Forensic Analysis</Text>
+        <Text style={[styles.subtitle, dynamicStyles.subtitle]}>AI-Powered Digital Investigation Platform</Text>
       </View>
 
       {/* Quick Actions */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Quick Actions</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Quick Actions</Text>
         <View style={styles.actionGrid}>
-          <TouchableOpacity style={styles.actionCard} onPress={handleUploadUFDR}>
-            <Upload size={32} color="#f59e0b" />
-            <Text style={styles.actionTitle}>Upload UFDR</Text>
+          <TouchableOpacity style={[styles.actionCard, dynamicStyles.actionCard]} onPress={handleUploadUFDR}>
+            <Upload size={32} color={primaryIconColor} />
+            <Text style={[styles.actionTitle, dynamicStyles.actionTitle]}>Upload UFDR</Text>
             <Text style={styles.actionSubtitle}>Import forensic data</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.actionCard} onPress={handleQuickQuery}>
-            <Search size={32} color="#f59e0b" />
-            <Text style={styles.actionTitle}>Quick Query</Text>
+          <TouchableOpacity style={[styles.actionCard, dynamicStyles.actionCard]} onPress={handleQuickQuery}>
+            <Search size={32} color={primaryIconColor} />
+            <Text style={[styles.actionTitle, dynamicStyles.actionTitle]}>Quick Query</Text>
             <Text style={styles.actionSubtitle}>Natural language search</Text>
           </TouchableOpacity>
         </View>
@@ -111,26 +163,26 @@ export default function HomeScreen() {
 
       {/* Statistics */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Overview</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Overview</Text>
         <View style={styles.statsGrid}>
-          <View style={styles.statCard}>
-            <FileText size={24} color="#f59e0b" />
-            <Text style={styles.statValue}>{stats.totalCases}</Text>
+          <View style={[styles.statCard, dynamicStyles.statCard]}>
+            <FileText size={24} color={primaryIconColor} />
+            <Text style={[styles.statValue, dynamicStyles.statValue]}>{stats.totalCases}</Text>
             <Text style={styles.statLabel}>Total Cases</Text>
           </View>
-          <View style={styles.statCard}>
+          <View style={[styles.statCard, dynamicStyles.statCard]}>
             <TrendingUp size={24} color="#10b981" />
-            <Text style={styles.statValue}>{stats.activeCases}</Text>
+            <Text style={[styles.statValue, dynamicStyles.statValue]}>{stats.activeCases}</Text>
             <Text style={styles.statLabel}>Active Cases</Text>
           </View>
-          <View style={styles.statCard}>
+          <View style={[styles.statCard, dynamicStyles.statCard]}>
             <CheckCircle size={24} color="#3b82f6" />
-            <Text style={styles.statValue}>{stats.completedCases}</Text>
+            <Text style={[styles.statValue, dynamicStyles.statValue]}>{stats.completedCases}</Text>
             <Text style={styles.statLabel}>Completed</Text>
           </View>
-          <View style={styles.statCard}>
+          <View style={[styles.statCard, dynamicStyles.statCard]}>
             <AlertTriangle size={24} color="#8b5cf6" />
-            <Text style={styles.statValue}>{stats.totalEvidence}</Text>
+            <Text style={[styles.statValue, dynamicStyles.statValue]}>{stats.totalEvidence}</Text>
             <Text style={styles.statLabel}>Evidence Items</Text>
           </View>
         </View>
@@ -138,12 +190,12 @@ export default function HomeScreen() {
 
       {/* Recent Cases */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Recent Cases</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Recent Cases</Text>
         {recentCases.map((caseItem) => (
-          <TouchableOpacity key={caseItem.id} style={styles.caseCard}>
+          <TouchableOpacity key={caseItem.id} style={[styles.caseCard, dynamicStyles.caseCard]}>
             <View style={styles.caseHeader}>
               <View style={styles.caseInfo}>
-                <Text style={styles.caseName}>{caseItem.name}</Text>
+                <Text style={[styles.caseName, dynamicStyles.caseName]}>{caseItem.name}</Text>
                 <Text style={styles.caseTime}>{caseItem.lastUpdated}</Text>
               </View>
               <View style={styles.caseStatus}>
@@ -155,10 +207,11 @@ export default function HomeScreen() {
             </View>
             {caseItem.status === 'Processing' && (
               <View style={styles.progressContainer}>
-                <View style={styles.progressBar}>
+                <View style={[styles.progressBar, dynamicStyles.progressBar]}>
                   <View
                     style={[
                       styles.progressFill,
+                      dynamicStyles.progressFill,
                       { width: `${caseItem.progress}%` },
                     ]}
                   />
@@ -176,17 +229,14 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f172a',
   },
   header: {
     padding: 24,
     paddingTop: 60,
-    backgroundColor: '#1e293b',
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#f1f5f9',
     marginBottom: 4,
   },
   subtitle: {
@@ -199,7 +249,6 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
-    color: '#f1f5f9',
     marginBottom: 16,
   },
   actionGrid: {
@@ -208,17 +257,14 @@ const styles = StyleSheet.create({
   },
   actionCard: {
     flex: 1,
-    backgroundColor: '#1e293b',
     padding: 20,
     borderRadius: 12,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#334155',
   },
   actionTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#f1f5f9',
     marginTop: 12,
   },
   actionSubtitle: {
@@ -234,17 +280,14 @@ const styles = StyleSheet.create({
   },
   statCard: {
     width: '48%',
-    backgroundColor: '#1e293b',
     padding: 16,
     borderRadius: 12,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#334155',
   },
   statValue: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#f1f5f9',
     marginTop: 8,
   },
   statLabel: {
@@ -253,12 +296,10 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   caseCard: {
-    backgroundColor: '#1e293b',
     padding: 16,
     borderRadius: 12,
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: '#334155',
   },
   caseHeader: {
     flexDirection: 'row',
@@ -271,7 +312,6 @@ const styles = StyleSheet.create({
   caseName: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#f1f5f9',
   },
   caseTime: {
     fontSize: 12,
@@ -296,12 +336,10 @@ const styles = StyleSheet.create({
   progressBar: {
     flex: 1,
     height: 4,
-    backgroundColor: '#334155',
     borderRadius: 2,
   },
   progressFill: {
     height: '100%',
-    backgroundColor: '#f59e0b',
     borderRadius: 2,
   },
   progressText: {
@@ -310,4 +348,4 @@ const styles = StyleSheet.create({
     width: 35,
     textAlign: 'right',
   },
-});
+}); 

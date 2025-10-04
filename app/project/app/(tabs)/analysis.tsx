@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  useColorScheme,
 } from 'react-native';
 import {
   Search,
@@ -22,6 +23,9 @@ import {
 } from 'lucide-react-native';
 
 export default function AnalysisScreen() {
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === 'dark';
+
   const [query, setQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [results] = useState([
@@ -92,9 +96,10 @@ export default function AnalysisScreen() {
   };
 
   const getTypeIcon = (type: string) => {
+    const iconColor = isDarkMode ? '#f59e0b' : '#15803d';
     switch (type) {
       case 'chat':
-        return <MessageSquare size={20} color="#f59e0b" />;
+        return <MessageSquare size={20} color={iconColor} />;
       case 'call':
         return <Phone size={20} color="#10b981" />;
       case 'image':
@@ -108,23 +113,84 @@ export default function AnalysisScreen() {
 
   const getRelevanceColor = (relevance: number) => {
     if (relevance >= 90) return '#10b981';
-    if (relevance >= 75) return '#f59e0b';
+    if (relevance >= 75) return isDarkMode ? '#f59e0b' : '#15803d';
     return '#ef4444';
   };
 
+  // Dynamic styles based on theme
+  const dynamicStyles = {
+    container: {
+      backgroundColor: isDarkMode ? '#0f172a' : '#ffffff',
+    },
+    header: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#f8faf9',
+    },
+    title: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    subtitle: {
+      color: '#64748b',
+    },
+    sectionTitle: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    searchContainer: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
+    },
+    searchInput: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    searchButton: {
+      backgroundColor: isDarkMode ? '#f59e0b' : '#15803d',
+    },
+    searchButtonText: {
+      color: isDarkMode ? '#000000' : '#ffffff',
+    },
+    filterButton: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
+    },
+    quickQueryChip: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
+    },
+    quickQueryText: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    exportButton: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+    },
+    exportText: {
+      color: isDarkMode ? '#f59e0b' : '#15803d',
+    },
+    resultCard: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
+    },
+    resultTypeText: {
+      color: isDarkMode ? '#f59e0b' : '#15803d',
+    },
+    resultContent: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+  };
+
+  const primaryIconColor = isDarkMode ? '#f59e0b' : '#15803d';
+
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <View style={styles.header}>
-        <Text style={styles.title}>AI Analysis</Text>
-        <Text style={styles.subtitle}>Natural Language Query Interface</Text>
+    <ScrollView style={[styles.container, dynamicStyles.container]} showsVerticalScrollIndicator={false}>
+      <View style={[styles.header, dynamicStyles.header]}>
+        <Text style={[styles.title, dynamicStyles.title]}>AI Analysis</Text>
+        <Text style={[styles.subtitle, dynamicStyles.subtitle]}>Natural Language Query Interface</Text>
       </View>
 
       {/* Search Interface */}
       <View style={styles.searchSection}>
-        <View style={styles.searchContainer}>
+        <View style={[styles.searchContainer, dynamicStyles.searchContainer]}>
           <Search size={20} color="#64748b" />
           <TextInput
-            style={styles.searchInput}
+            style={[styles.searchInput, dynamicStyles.searchInput]}
             placeholder="Ask me anything about the forensic data..."
             placeholderTextColor="#64748b"
             value={query}
@@ -132,22 +198,22 @@ export default function AnalysisScreen() {
             multiline
           />
           <TouchableOpacity onPress={handleVoiceSearch}>
-            <Mic size={20} color="#f59e0b" />
+            <Mic size={20} color={primaryIconColor} />
           </TouchableOpacity>
         </View>
         
         <View style={styles.searchActions}>
           <TouchableOpacity
-            style={[styles.searchButton, isSearching && styles.searchButtonDisabled]}
+            style={[styles.searchButton, dynamicStyles.searchButton, isSearching && styles.searchButtonDisabled]}
             onPress={handleSearch}
             disabled={isSearching}
           >
-            <Text style={styles.searchButtonText}>
+            <Text style={[styles.searchButtonText, dynamicStyles.searchButtonText]}>
               {isSearching ? 'Analyzing...' : 'Search'}
             </Text>
           </TouchableOpacity>
           
-          <TouchableOpacity style={styles.filterButton}>
+          <TouchableOpacity style={[styles.filterButton, dynamicStyles.filterButton]}>
             <Filter size={16} color="#64748b" />
             <Text style={styles.filterButtonText}>Filters</Text>
           </TouchableOpacity>
@@ -156,16 +222,16 @@ export default function AnalysisScreen() {
 
       {/* Quick Queries */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Quick Queries</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Quick Queries</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <View style={styles.quickQueriesContainer}>
             {quickQueries.map((quickQuery, index) => (
               <TouchableOpacity
                 key={index}
-                style={styles.quickQueryChip}
+                style={[styles.quickQueryChip, dynamicStyles.quickQueryChip]}
                 onPress={() => setQuery(quickQuery)}
               >
-                <Text style={styles.quickQueryText}>{quickQuery}</Text>
+                <Text style={[styles.quickQueryText, dynamicStyles.quickQueryText]}>{quickQuery}</Text>
               </TouchableOpacity>
             ))}
           </View>
@@ -175,19 +241,19 @@ export default function AnalysisScreen() {
       {/* Results */}
       <View style={styles.section}>
         <View style={styles.resultsHeader}>
-          <Text style={styles.sectionTitle}>Analysis Results</Text>
-          <TouchableOpacity style={styles.exportButton}>
-            <Download size={16} color="#f59e0b" />
-            <Text style={styles.exportText}>Export</Text>
+          <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Analysis Results</Text>
+          <TouchableOpacity style={[styles.exportButton, dynamicStyles.exportButton]}>
+            <Download size={16} color={primaryIconColor} />
+            <Text style={[styles.exportText, dynamicStyles.exportText]}>Export</Text>
           </TouchableOpacity>
         </View>
         
         {results.map((result) => (
-          <View key={result.id} style={styles.resultCard}>
+          <View key={result.id} style={[styles.resultCard, dynamicStyles.resultCard]}>
             <View style={styles.resultHeader}>
               <View style={styles.resultType}>
                 {getTypeIcon(result.type)}
-                <Text style={styles.resultTypeText}>{result.type.toUpperCase()}</Text>
+                <Text style={[styles.resultTypeText, dynamicStyles.resultTypeText]}>{result.type.toUpperCase()}</Text>
               </View>
               <View style={styles.relevanceContainer}>
                 <View
@@ -200,7 +266,7 @@ export default function AnalysisScreen() {
               </View>
             </View>
             
-            <Text style={styles.resultContent}>{result.content}</Text>
+            <Text style={[styles.resultContent, dynamicStyles.resultContent]}>{result.content}</Text>
             
             <View style={styles.resultFooter}>
               <View style={styles.resultMeta}>
@@ -227,17 +293,14 @@ export default function AnalysisScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f172a',
   },
   header: {
     padding: 24,
     paddingTop: 60,
-    backgroundColor: '#1e293b',
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#f1f5f9',
     marginBottom: 4,
   },
   subtitle: {
@@ -250,17 +313,14 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1e293b',
     borderRadius: 12,
     padding: 16,
     borderWidth: 1,
-    borderColor: '#334155',
     gap: 12,
   },
   searchInput: {
     flex: 1,
     fontSize: 16,
-    color: '#f1f5f9',
     maxHeight: 100,
   },
   searchActions: {
@@ -270,7 +330,6 @@ const styles = StyleSheet.create({
   },
   searchButton: {
     flex: 1,
-    backgroundColor: '#f59e0b',
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,
@@ -280,19 +339,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#64748b',
   },
   searchButtonText: {
-    color: '#000000',
     fontSize: 16,
     fontWeight: '600',
   },
   filterButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1e293b',
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#334155',
     gap: 6,
   },
   filterButtonText: {
@@ -305,7 +361,6 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
-    color: '#f1f5f9',
     marginBottom: 16,
   },
   quickQueriesContainer: {
@@ -313,15 +368,12 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   quickQueryChip: {
-    backgroundColor: '#1e293b',
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: '#334155',
   },
   quickQueryText: {
-    color: '#f1f5f9',
     fontSize: 14,
   },
   resultsHeader: {
@@ -333,24 +385,20 @@ const styles = StyleSheet.create({
   exportButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1e293b',
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 6,
     gap: 6,
   },
   exportText: {
-    color: '#f59e0b',
     fontSize: 12,
     fontWeight: '500',
   },
   resultCard: {
-    backgroundColor: '#1e293b',
     borderRadius: 12,
     padding: 16,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: '#334155',
   },
   resultHeader: {
     flexDirection: 'row',
@@ -364,7 +412,6 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   resultTypeText: {
-    color: '#f59e0b',
     fontSize: 12,
     fontWeight: '600',
   },
@@ -383,7 +430,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   resultContent: {
-    color: '#f1f5f9',
     fontSize: 14,
     lineHeight: 20,
     marginBottom: 12,

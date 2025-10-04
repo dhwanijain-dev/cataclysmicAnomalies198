@@ -7,14 +7,52 @@ import {
   TouchableOpacity,
   Switch,
   Alert,
+  useColorScheme,
 } from 'react-native';
 import { User, Shield, Bell, Database, Download, CircleHelp as HelpCircle, LogOut, Moon, Lock, Globe, Archive } from 'lucide-react-native';
 
 export default function SettingsScreen() {
+  const colorScheme = useColorScheme();
+  const isDarkMode = colorScheme === 'dark';
+
   const [notifications, setNotifications] = useState(true);
   const [darkMode, setDarkMode] = useState(true);
   const [autoSync, setAutoSync] = useState(false);
   const [secureMode, setSecureMode] = useState(true);
+
+  // Dynamic styles based on theme
+  const dynamicStyles = {
+    container: {
+      backgroundColor: isDarkMode ? '#0f172a' : '#ffffff',
+    },
+    header: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#f8faf9',
+    },
+    title: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    subtitle: {
+      color: '#64748b',
+    },
+    sectionTitle: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    settingItem: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+      borderColor: isDarkMode ? '#334155' : '#e2e8f0',
+    },
+    settingTitle: {
+      color: isDarkMode ? '#f1f5f9' : '#0f172a',
+    },
+    logoutButton: {
+      backgroundColor: isDarkMode ? '#1e293b' : '#ffffff',
+      borderColor: isDarkMode ? '#ef444420' : '#ef444420',
+    },
+  };
+
+  const primaryIconColor = isDarkMode ? '#f59e0b' : '#15803d';
+  const switchTrackColor = { false: isDarkMode ? '#374151' : '#e2e8f0', true: primaryIconColor };
+  const switchThumbColor = '#ffffff';
 
   const handleLogout = () => {
     Alert.alert(
@@ -50,11 +88,11 @@ export default function SettingsScreen() {
   };
 
   const SettingItem = ({ icon, title, subtitle, onPress, rightComponent }: any) => (
-    <TouchableOpacity style={styles.settingItem} onPress={onPress}>
+    <TouchableOpacity style={[styles.settingItem, dynamicStyles.settingItem]} onPress={onPress}>
       <View style={styles.settingLeft}>
         {icon}
         <View style={styles.settingText}>
-          <Text style={styles.settingTitle}>{title}</Text>
+          <Text style={[styles.settingTitle, dynamicStyles.settingTitle]}>{title}</Text>
           {subtitle && <Text style={styles.settingSubtitle}>{subtitle}</Text>}
         </View>
       </View>
@@ -63,17 +101,17 @@ export default function SettingsScreen() {
   );
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Settings</Text>
-        <Text style={styles.subtitle}>Configure Application Preferences</Text>
+    <ScrollView style={[styles.container, dynamicStyles.container]} showsVerticalScrollIndicator={false}>
+      <View style={[styles.header, dynamicStyles.header]}>
+        <Text style={[styles.title, dynamicStyles.title]}>Settings</Text>
+        <Text style={[styles.subtitle, dynamicStyles.subtitle]}>Configure Application Preferences</Text>
       </View>
 
       {/* Profile Section */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Profile</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Profile</Text>
         <SettingItem
-          icon={<User size={20} color="#f59e0b" />}
+          icon={<User size={20} color={primaryIconColor} />}
           title="Officer Profile"
           subtitle="Manage your account details"
           onPress={() => console.log('Profile pressed')}
@@ -82,7 +120,7 @@ export default function SettingsScreen() {
 
       {/* Security Section */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Security</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Security</Text>
         <SettingItem
           icon={<Lock size={20} color="#ef4444" />}
           title="Secure Mode"
@@ -91,8 +129,8 @@ export default function SettingsScreen() {
             <Switch
               value={secureMode}
               onValueChange={setSecureMode}
-              trackColor={{ false: '#374151', true: '#f59e0b' }}
-              thumbColor={secureMode ? '#ffffff' : '#9ca3af'}
+              trackColor={switchTrackColor}
+              thumbColor={switchThumbColor}
             />
           }
         />
@@ -106,7 +144,7 @@ export default function SettingsScreen() {
 
       {/* Application Settings */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Application</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Application</Text>
         <SettingItem
           icon={<Bell size={20} color="#3b82f6" />}
           title="Notifications"
@@ -115,8 +153,8 @@ export default function SettingsScreen() {
             <Switch
               value={notifications}
               onValueChange={setNotifications}
-              trackColor={{ false: '#374151', true: '#f59e0b' }}
-              thumbColor={notifications ? '#ffffff' : '#9ca3af'}
+              trackColor={switchTrackColor}
+              thumbColor={switchThumbColor}
             />
           }
         />
@@ -128,8 +166,8 @@ export default function SettingsScreen() {
             <Switch
               value={darkMode}
               onValueChange={setDarkMode}
-              trackColor={{ false: '#374151', true: '#f59e0b' }}
-              thumbColor={darkMode ? '#ffffff' : '#9ca3af'}
+              trackColor={switchTrackColor}
+              thumbColor={switchThumbColor}
             />
           }
         />
@@ -143,7 +181,7 @@ export default function SettingsScreen() {
 
       {/* Data Management */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Data Management</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Data Management</Text>
         <SettingItem
           icon={<Database size={20} color="#10b981" />}
           title="Auto Sync"
@@ -152,8 +190,8 @@ export default function SettingsScreen() {
             <Switch
               value={autoSync}
               onValueChange={setAutoSync}
-              trackColor={{ false: '#374151', true: '#f59e0b' }}
-              thumbColor={autoSync ? '#ffffff' : '#9ca3af'}
+              trackColor={switchTrackColor}
+              thumbColor={switchThumbColor}
             />
           }
         />
@@ -173,7 +211,7 @@ export default function SettingsScreen() {
 
       {/* Support */}
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Support</Text>
+        <Text style={[styles.sectionTitle, dynamicStyles.sectionTitle]}>Support</Text>
         <SettingItem
           icon={<HelpCircle size={20} color="#64748b" />}
           title="Help & Documentation"
@@ -184,7 +222,7 @@ export default function SettingsScreen() {
 
       {/* Account Actions */}
       <View style={styles.section}>
-        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <TouchableOpacity style={[styles.logoutButton, dynamicStyles.logoutButton]} onPress={handleLogout}>
           <LogOut size={20} color="#ef4444" />
           <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
@@ -202,17 +240,14 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f172a',
   },
   header: {
     padding: 24,
     paddingTop: 60,
-    backgroundColor: '#1e293b',
   },
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#f1f5f9',
     marginBottom: 4,
   },
   subtitle: {
@@ -225,19 +260,16 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#f1f5f9',
     marginBottom: 12,
   },
   settingItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#1e293b',
     padding: 16,
     borderRadius: 12,
     marginBottom: 8,
     borderWidth: 1,
-    borderColor: '#334155',
   },
   settingLeft: {
     flexDirection: 'row',
@@ -251,7 +283,6 @@ const styles = StyleSheet.create({
   settingTitle: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#f1f5f9',
   },
   settingSubtitle: {
     fontSize: 12,
@@ -261,11 +292,9 @@ const styles = StyleSheet.create({
   logoutButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#1e293b',
     padding: 16,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#ef444420',
     gap: 12,
   },
   logoutText: {

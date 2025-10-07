@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UFDR_Report>
+    <Metadata>
+        <CaseNumber>SIMPLE-TEST-2025-001</CaseNumber>
+        <InvestigatingOfficer>Det. Sarah Johnson</InvestigatingOfficer>
+        <ExtractionTool>Cellebrite UFED v7.5</ExtractionTool>
+        <ExtractionDate>2025-10-06T12:00:00Z</ExtractionDate>
+        <DeviceInformation>
+            <Owner>Marcus "Shadow" Rodriguez (Primary Suspect)</Owner>
+            <Model>Samsung Galaxy S23 Ultra</Model>
+            <OS>Android 14</OS>
+            <IMEI>354728361234567</IMEI>
+            <PhoneNumber>+1-555-0199</PhoneNumber>
+        </DeviceInformation>
+    </Metadata>
+
+    <Contacts>
+        <Contact>
+            <ID>1</ID>
+            <Name>Carlos "El Jefe" Martinez</Name>
+            <PhoneNumber>+52-555-0101</PhoneNumber>
+            <Email>cmartinez@encrypted-mail.com</Email>
+        </Contact>
+        <Contact>
+            <ID>2</ID>
+            <Name>Viktor "Mixer" Petrov</Name>
+            <PhoneNumber>+7-495-555-0123</PhoneNumber>
+            <Email>vpetrov@crypto-anon.net</Email>
+        </Contact>
+        <Contact>
+            <ID>3</ID>
+            <Name>Ahmed "Arsenal" Hassan</Name>
+            <PhoneNumber>+971-50-555-0167</PhoneNumber>
+            <Email>ahassan@secure-comm.ae</Email>
+        </Contact>
+    </Contacts>
+
+    <CallLogs>
+        <Call>
+            <Timestamp>2025-10-02T13:45:30Z</Timestamp>
+            <Direction>Incoming</Direction>
+            <ContactName>Carlos "El Jefe" Martinez</ContactName>
+            <Number>+52-555-0101</Number>
+            <DurationSeconds>320</DurationSeconds>
+        </Call>
+        <Call>
+            <Timestamp>2025-10-03T08:30:15Z</Timestamp>
+            <Direction>Outgoing</Direction>
+            <ContactName>Viktor "Mixer" Petrov</ContactName>
+            <Number>+7-495-555-0123</Number>
+            <DurationSeconds>180</DurationSeconds>
+        </Call>
+        <Call>
+            <Timestamp>2025-10-03T17:15:42Z</Timestamp>
+            <Direction>Incoming</Direction>
+            <ContactName>Ahmed "Arsenal" Hassan</ContactName>
+            <Number>+971-50-555-0167</Number>
+            <DurationSeconds>450</DurationSeconds>
+        </Call>
+    </CallLogs>
+
+    <Chats>
+        <Conversation App="WhatsApp" ParticipantName="Carlos &quot;El Jefe&quot; Martinez" ParticipantID="+52-555-0101">
+            <Message>
+                <Timestamp>2025-10-02T14:30:15Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Lab results came back clean. 98% purity on the cocaine. Ready to ship 50 kilos to the usual location.</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-02T14:45:22Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>Payment in Bitcoin as agreed. Send to this address: bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4 - exactly 15.7 BTC</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-02T15:20:33Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Transaction confirmed. Shipment moving tomorrow via the usual route. Border contact is ready.</Content>
+            </Message>
+        </Conversation>
+        <Conversation App="Signal" ParticipantName="Viktor &quot;Mixer&quot; Petrov" ParticipantID="+7-495-555-0123">
+            <Message>
+                <Timestamp>2025-10-03T09:15:33Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Ethereum address for clean funds: 0x742d35Cc6C8589cb5D8f8a9F7e2a7c0D5e3F4A1B. Can handle up to 500 ETH per transaction. Commission is 8%.</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T10:30:12Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>Perfect. Will send 200 ETH for laundering today. Need clean funds back in Panama account by Friday.</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T11:45:55Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>No problem. Clean funds will appear as tech consulting payment from Shell Company LLC. Documentation ready.</Content>
+            </Message>
+        </Conversation>
+        <Conversation App="Telegram" ParticipantName="Ahmed &quot;Arsenal&quot; Hassan" ParticipantID="+971-50-555-0167">
+            <Message>
+                <Timestamp>2025-10-03T18:20:44Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Got the new batch. 5 keys of premium white available. Price per key is 50K. Also have some party favors if you're interested - fentanyl patches, 100mcg each.</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T19:15:22Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>I'll take 3 keys of the white and 50 patches. Same drop location as last time?</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T20:30:18Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Confirmed. Warehouse District, Pier 7, Tuesday 2 AM. Bring 150K cash plus 10K for the patches. Come alone.</Content>
+            </Message>
+        </Conversation>
+    </Chats>
+
+    <BrowserHistory>
+        <Visit>
+            <Timestamp>2025-10-02T15:20:11Z</Timestamp>
+            <URL>https://www.coinbase.com/login</URL>
+            <Title>Coinbase - Log In</Title>
+        </Visit>
+        <Visit>
+            <Timestamp>2025-10-03T09:40:00Z</Timestamp>
+            <URL>https://www.google.com/search?q=how+to+hide+transactions+on+blockchain</URL>
+            <Title>how to hide transactions on blockchain - Google Search</Title>
+        </Visit>
+        <Visit>
+            <Timestamp>2025-10-03T14:25:33Z</Timestamp>
+            <URL>https://tornado.cash</URL>
+            <Title>Tornado Cash - Private Transactions</Title>
+        </Visit>
+    </BrowserHistory>
+
+    <Images>
+        <Image>
+            <FileName>drug_package.jpg</FileName>
+            <FilePath>/storage/emulated/0/DCIM/Camera/drug_package.jpg</FilePath>
+            <Timestamp>2025-10-02T16:01:34Z</Timestamp>
+            <GPS>40.7128, -74.0060</GPS>
+            <Description>AI Analysis: Photo showing 50 packages of white powder in warehouse setting. Each package labeled with purity markings.</Description>
+        </Image>
+        <Image>
+            <FileName>bitcoin_wallet_balance.png</FileName>
+            <FilePath>/storage/emulated/0/Pictures/Screenshots/bitcoin_wallet_balance.png</FilePath>
+            <Timestamp>2025-10-03T11:55:00Z</Timestamp>
+            <GPS/>
+            <Description>AI Analysis: Screenshot of Bitcoin wallet showing balance of 347.8 BTC (~$15.2M USD). Multiple recent transactions visible.</Description>
+        </Image>
+        <Image>
+            <FileName>fentanyl_patches.jpg</FileName>
+            <FilePath>/storage/emulated/0/DCIM/Camera/fentanyl_patches.jpg</FilePath>
+            <Timestamp>2025-10-03T19:45:22Z</Timestamp>
+            <GPS>25.7617, -80.1918</GPS>
+            <Description>AI Analysis: Photo of medical-grade fentanyl patches, 100mcg dosage. Approximately 50 patches visible on table.</Description>
+        </Image>
+    </Images>
+    
+    <Notes>
+        <Note>
+            <Title>Crypto Wallet Info</Title>
+            <CreatedDate>2025-10-02T12:00:00Z</CreatedDate>
+            <Content>
+            Primary Bitcoin Address: bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4
+            Ethereum Laundering Address: 0x742d35Cc6C8589cb5D8f8a9F7e2a7c0D5e3F4A1B
+            Monero for Anonymous: 4A1BvqYxZ7qjhYwJ8rN5m3P9QzXx2VvKkRsT7FgHh8dJ
+            Hardware Wallet Seed: abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about
+            </Content>
+        </Note>
+        <Note>
+            <Title>Contact Codes</Title>
+            <CreatedDate>2025-10-03T08:00:00Z</CreatedDate>
+            <Content>
+            Carlos = Cocaine supplier (Colombia connection)
+            Viktor = Crypto mixer (Russian operation)  
+            Ahmed = Multi-drug dealer (Middle East connection)
+            "White" = Cocaine
+            "Patches" = Fentanyl
+            "Keys" = Kilograms
+            "Party favors" = Synthetic drugs
+            </Content>
+        </Note>
+    </Notes>
+
+</UFDR_Report>

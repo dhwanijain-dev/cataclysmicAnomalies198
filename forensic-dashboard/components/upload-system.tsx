@@ -12,6 +12,8 @@ import { Progress } from "@/components/ui/progress"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Upload, FileText, CheckCircle, AlertCircle, X, Smartphone, HardDrive } from "lucide-react"
+import { apiClient, UploadResponse } from "@/lib/api-client"
+import { useToast } from "@/hooks/use-toast"
 
 interface UploadedFile {
   id: string
@@ -20,10 +22,17 @@ interface UploadedFile {
   type: string
   status: "uploading" | "processing" | "completed" | "error"
   progress: number
+  error?: string
   deviceInfo?: {
     model: string
     os: string
     imei?: string
+  }
+  processingResults?: {
+    totalChats: number
+    totalCalls: number
+    totalContacts: number
+    totalMedia: number
   }
 }
 
@@ -34,6 +43,9 @@ export function UploadSystem() {
   const [investigatingOfficer, setInvestigatingOfficer] = useState("")
   const [caseDescription, setCaseDescription] = useState("")
   const [priority, setPriority] = useState("")
+  const [currentCaseId, setCurrentCaseId] = useState<string | null>(null)
+  const [isCreatingCase, setIsCreatingCase] = useState(false)
+  const { toast } = useToast()
 
   const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault()
@@ -55,7 +67,38 @@ export function UploadSystem() {
     }
   }, [])
 
-  const handleFiles = (fileList: FileList) => {
+  const handleFiles = async (fileList: FileList) => {
+    // Create case first if not exists
+    let caseId = currentCaseId;
+    if (!caseId && caseNumber && !isCreatingCase) {
+      setIsCreatingCase(true);
+      try {
+        const caseResponse = await apiClient.createCase({
+          caseNumber,
+          caseName: `Case ${caseNumber}`,
+          description: caseDescription,
+        });
+        
+        if (caseResponse.success) {
+          caseId = caseResponse.data.id;
+          setCurrentCaseId(caseId);
+          toast({
+            title: "Case Created",
+            description: `Case ${caseNumber} has been created successfully.`,
+          });
+        }
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Failed to create case. Please try again.",
+          variant: "destructive",
+        });
+        setIsCreatingCase(false);
+        return;
+      }
+      setIsCreatingCase(false);
+    }
+
     const newFiles: UploadedFile[] = Array.from(fileList).map((file) => ({
       id: Math.random().toString(36).substr(2, 9),
       name: file.name,
@@ -63,39 +106,88 @@ export function UploadSystem() {
       type: file.type,
       status: "uploading",
       progress: 0,
-      deviceInfo: {
-        model: "Samsung Galaxy S21", // This would be extracted from the UFDR file
-        os: "Android 12",
-        imei: "123456789012345",
-      },
     }))
 
     setFiles((prev) => [...prev, ...newFiles])
 
-    // Simulate upload and processing
-    newFiles.forEach((file) => {
-      simulateUpload(file.id)
+    // Upload files to backend
+    newFiles.forEach((fileInfo) => {
+      uploadFileToBackend(fileInfo, fileList[newFiles.indexOf(fileInfo)], caseId)
     })
   }
 
-  const simulateUpload = (fileId: string) => {
-    const interval = setInterval(() => {
-      setFiles((prev) =>
-        prev.map((file) => {
-          if (file.id === fileId) {
-            if (file.progress < 100) {
-              return { ...file, progress: file.progress + 10 }
-            } else if (file.status === "uploading") {
-              return { ...file, status: "processing" }
-            } else if (file.status === "processing") {
-              clearInterval(interval)
-              return { ...file, status: "completed" }
+  const uploadFileToBackend = async (fileInfo: UploadedFile, file: File, caseId?: string | null) => {
+    try {
+      // Start upload
+      setFiles(prev => prev.map(f => 
+        f.id === fileInfo.id 
+          ? { ...f, status: "uploading", progress: 25 }
+          : f
+      ));
+
+      const response = await apiClient.uploadFile(file, caseId || undefined);
+
+      if (response.success && response.data) {
+        // Upload completed, start processing
+        setFiles(prev => prev.map(f => 
+          f.id === fileInfo.id 
+            ? { 
+                ...f, 
+                status: "processing", 
+                progress: 75,
+                processingResults: response.data?.stats ? {
+                  totalChats: response.data.stats.chats,
+                  totalCalls: response.data.stats.calls,
+                  totalContacts: response.data.stats.contacts,
+                  totalMedia: response.data.stats.media,
+                } : undefined
+              }
+            : f
+        ));
+
+        // Simulate processing time then complete
+        setTimeout(() => {
+          setFiles(prev => prev.map(f => 
+            f.id === fileInfo.id 
+              ? { 
+                  ...f, 
+                  status: "completed", 
+                  progress: 100,
+                  deviceInfo: {
+                    model: "Device Model", // This would come from UFDR parsing
+                    os: "OS Version",
+                    imei: "IMEI Number",
+                  }
+                }
+              : f
+          ));
+
+          toast({
+            title: "Upload Successful",
+            description: `${file.name} has been processed successfully.`,
+          });
+        }, 2000);
+      } else {
+        throw new Error(response.message || "Upload failed");
+      }
+    } catch (error) {
+      setFiles(prev => prev.map(f => 
+        f.id === fileInfo.id 
+          ? { 
+              ...f, 
+              status: "error", 
+              progress: 0,
+              error: error instanceof Error ? error.message : "Unknown error"
             }
-          }
-          return file
-        }),
-      )
-    }, 500)
+          : f
+      ));
+
+      toast({
+        title: "Upload Failed",
+        description: `Failed to upload ${file.name}. ${error instanceof Error ? error.message : "Please try again."}`,
+        variant: "destructive",
+      });
+    }
   }
 
   const removeFile = (fileId: string) => {
@@ -272,6 +364,19 @@ export function UploadSystem() {
                           {file.deviceInfo.os}
                         </span>
                         {file.deviceInfo.imei && <span>IMEI: {file.deviceInfo.imei}</span>}
+                      </div>
+                    )}
+                    {file.processingResults && file.status === "completed" && (
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                        <span>Chats: {file.processingResults.totalChats}</span>
+                        <span>Calls: {file.processingResults.totalCalls}</span>
+                        <span>Contacts: {file.processingResults.totalContacts}</span>
+                        <span>Media: {file.processingResults.totalMedia}</span>
+                      </div>
+                    )}
+                    {file.status === "error" && file.error && (
+                      <div className="text-xs text-destructive">
+                        Error: {file.error}
                       </div>
                     )}
                   </div>

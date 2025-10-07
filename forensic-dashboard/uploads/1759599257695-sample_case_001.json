@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "caseNumber": "CYB-2025-SAMPLE-JSON-001",
+    "investigatingOfficer": "Detective S. Patel",
+    "extractionTool": "Cellebrite UFED v8.0",
+    "extractionDate": "2025-10-04T11:00:00Z",
+    "deviceInformation": {
+      "owner": "Priya Sharma (Suspect)",
+      "model": "iPhone 15 Pro Max",
+      "os": "iOS 17.1",
+      "imei": "356789123456789",
+      "phoneNumber": "+919876543210",
+      "manufacturer": "Apple"
+    }
+  },
+  "contacts": [
+    {
+      "id": "1",
+      "name": "Rohit Kumar",
+      "phoneNumbers": ["+919123456789", "+919876543211"],
+      "emails": ["rohit.kumar@protonmail.com"],
+      "organization": "TechStart Inc"
+    },
+    {
+      "id": "2",
+      "name": "Anita Singh",
+      "phoneNumbers": ["+447700900123"],
+      "emails": ["anita.singh@gmail.com", "a.singh@company.com"],
+      "organization": "Global Enterprises"
+    },
+    {
+      "id": "3",
+      "name": "Crypto Exchange Support",
+      "phoneNumbers": ["+911800999888"],
+      "emails": ["support@cryptoex.com"],
+      "organization": "CryptoEx"
+    }
+  ],
+  "callLogs": [
+    {
+      "timestamp": "2025-10-04T09:15:30Z",
+      "direction": "Outgoing",
+      "contactName": "Rohit Kumar",
+      "number": "+919123456789",
+      "durationSeconds": 245,
+      "status": "Answered"
+    },
+    {
+      "timestamp": "2025-10-04T10:30:45Z",
+      "direction": "Incoming",
+      "contactName": "Anita Singh",
+      "number": "+447700900123",
+      "durationSeconds": 180,
+      "status": "Answered"
+    },
+    {
+      "timestamp": "2025-10-04T11:00:00Z",
+      "direction": "Outgoing",
+      "contactName": "Unknown",
+      "number": "+919999777666",
+      "durationSeconds": 0,
+      "status": "Missed"
+    }
+  ],
+  "chats": [
+    {
+      "app": "WhatsApp",
+      "participantName": "Rohit Kumar",
+      "participantID": "+919123456789",
+      "messages": [
+        {
+          "timestamp": "2025-10-04T09:20:00Z",
+          "direction": "Outgoing",
+          "content": "The payment is ready. Use this new wallet: 0x742d35Cc6548C6Fc053C76C7c9e7C0FC8e4E7b9A",
+          "messageType": "text"
+        },
+        {
+          "timestamp": "2025-10-04T09:21:15Z",
+          "direction": "Incoming",
+          "content": "Perfect! My BTC address: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+          "messageType": "text"
+        },
+        {
+          "timestamp": "2025-10-04T09:25:00Z",
+          "direction": "Outgoing",
+          "content": "Transaction sent. Hash: 0x1a2b3c4d5e6f7890abcdef1234567890abcdef1234567890abcdef1234567890",
+          "messageType": "text"
+        }
+      ]
+    },
+    {
+      "app": "Telegram",
+      "participantName": "Anita Singh",
+      "participantID": "+447700900123",
+      "messages": [
+        {
+          "timestamp": "2025-10-04T10:35:00Z",
+          "direction": "Incoming",
+          "content": "Server access details: IP 172.16.254.1, username: admin, password: SecureP@ss123",
+          "messageType": "text"
+        },
+        {
+          "timestamp": "2025-10-04T10:36:30Z",
+          "direction": "Outgoing",
+          "content": "Received. Will access at midnight. Backup IP: 203.0.113.45",
+          "messageType": "text"
+        }
+      ]
+    }
+  ],
+  "browserHistory": [
+    {
+      "timestamp": "2025-10-04T08:30:00Z",
+      "url": "https://www.coinbase.com/wallet",
+      "title": "Coinbase Wallet - Cryptocurrency Wallet"
+    },
+    {
+      "timestamp": "2025-10-04T08:45:00Z",
+      "url": "https://etherscan.io/address/0x742d35Cc6548C6Fc053C76C7c9e7C0FC8e4E7b9A",
+      "title": "Ethereum Address 0x742d35Cc6548C6Fc053C76C7c9e7C0FC8e4E7b9A"
+    },
+    {
+      "timestamp": "2025-10-04T09:00:00Z",
+      "url": "https://www.google.com/search?q=how+to+transfer+large+amounts+crypto+anonymously",
+      "title": "how to transfer large amounts crypto anonymously - Google Search"
+    }
+  ],
+  "images": [
+    {
+      "fileName": "crypto_balance.png",
+      "filePath": "/var/mobile/Media/DCIM/Screenshots/crypto_balance.png",
+      "timestamp": "2025-10-04T09:10:00Z",
+      "gps": {
+        "latitude": 19.0760,
+        "longitude": 72.8777
+      },
+      "description": "AI Analysis: Screenshot of cryptocurrency wallet showing balance of 25.3 ETH and recent transactions."
+    },
+    {
+      "fileName": "server_credentials.jpg",
+      "filePath": "/var/mobile/Media/DCIM/Camera/server_credentials.jpg",
+      "timestamp": "2025-10-04T10:40:00Z",
+      "gps": {
+        "latitude": 19.0825,
+        "longitude": 72.8816
+      },
+      "description": "AI Analysis: Photo of handwritten note containing server login credentials and IP addresses."
+    }
+  ],
+  "applications": [
+    {
+      "name": "MetaMask",
+      "packageName": "io.metamask",
+      "version": "7.8.0",
+      "installDate": "2025-09-20T12:00:00Z"
+    },
+    {
+      "name": "ProtonMail",
+      "packageName": "ch.protonmail.ios",
+      "version": "4.2.1",
+      "installDate": "2025-08-15T10:30:00Z"
+    },
+    {
+      "name": "Signal",
+      "packageName": "org.whispersystems.signal",
+      "version": "6.35.0",
+      "installDate": "2025-07-10T14:15:00Z"
+    }
+  ],
+  "locationData": [
+    {
+      "timestamp": "2025-10-04T09:00:00Z",
+      "latitude": 19.0760,
+      "longitude": 72.8777,
+      "accuracy": 4.5,
+      "source": "GPS",
+      "address": "Bandra Kurla Complex, Mumbai, India"
+    },
+    {
+      "timestamp": "2025-10-04T10:30:00Z",
+      "latitude": 19.0825,
+      "longitude": 72.8816,
+      "accuracy": 3.8,
+      "source": "GPS",
+      "address": "Worli, Mumbai, India"
+    }
+  ],
+  "notes": [
+    {
+      "title": "Wallet Backup",
+      "createdDate": "2025-10-03T20:00:00Z",
+      "content": "Primary ETH Wallet: 0x742d35Cc6548C6Fc053C76C7c9e7C0FC8e4E7b9A\\nBTC Wallet: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh\\nSeed Phrase: ocean hidden grass window market fabric panel logic quiz gather million\\nPrivate Key: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+    },
+    {
+      "title": "Server Access",
+      "createdDate": "2025-10-04T10:00:00Z",
+      "content": "Main Server: 172.16.254.1\\nBackup: 203.0.113.45\\nUsername: admin\\nPassword: SecureP@ss123\\nVPN Required: yes\\nPort: 22 (SSH), 443 (HTTPS)"
+    }
+  ],
+  "entities": [
+    {
+      "type": "PhoneNumber",
+      "value": "+919123456789"
+    },
+    {
+      "type": "PhoneNumber", 
+      "value": "+447700900123"
+    },
+    {
+      "type": "Email",
+      "value": "rohit.kumar@protonmail.com"
+    },
+    {
+      "type": "Email",
+      "value": "anita.singh@gmail.com"
+    },
+    {
+      "type": "CryptoAddress",
+      "value": "0x742d35Cc6548C6Fc053C76C7c9e7C0FC8e4E7b9A"
+    },
+    {
+      "type": "CryptoAddress",
+      "value": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"
+    },
+    {
+      "type": "IPAddress",
+      "value": "172.16.254.1"
+    },
+    {
+      "type": "IPAddress",
+      "value": "203.0.113.45"
+    },
+    {
+      "type": "TransactionHash",
+      "value": "0x1a2b3c4d5e6f7890abcdef1234567890abcdef1234567890abcdef1234567890"
+    }
+  ]
+}

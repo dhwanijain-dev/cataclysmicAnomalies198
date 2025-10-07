@@ -1,0 +1,310 @@
+{
+  "deviceInfo": {
+    "deviceName": "Samsung Galaxy S21",
+    "deviceType": "Mobile",
+    "imei": "352946119876543",
+    "phoneNumber": "+919876543210",
+    "manufacturer": "Samsung",
+    "model": "SM-G991B",
+    "osVersion": "Android 13",
+    "extractionDate": "2024-10-01T10:30:00Z"
+  },
+  "chats": [
+    {
+      "platform": "WhatsApp",
+      "conversationId": "conv_001",
+      "participantName": "Rahul Kumar",
+      "participantNumber": "+919123456789",
+      "message": "Hey, can you transfer 5 BTC to this address: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa",
+      "timestamp": "2024-09-15T14:30:00Z",
+      "direction": "incoming",
+      "messageType": "text",
+      "isDeleted": false
+    },
+    {
+      "platform": "WhatsApp",
+      "conversationId": "conv_001",
+      "participantName": "Rahul Kumar",
+      "participantNumber": "+919123456789",
+      "message": "Sure, I'll send it today. What's the payment for?",
+      "timestamp": "2024-09-15T14:32:00Z",
+      "direction": "outgoing",
+      "messageType": "text",
+      "isDeleted": false
+    },
+    {
+      "platform": "WhatsApp",
+      "conversationId": "conv_001",
+      "participantName": "Rahul Kumar",
+      "participantNumber": "+919123456789",
+      "message": "It's for the package delivery we discussed.",
+      "timestamp": "2024-09-15T14:35:00Z",
+      "direction": "incoming",
+      "messageType": "text",
+      "isDeleted": false
+    },
+    {
+      "platform": "WhatsApp",
+      "conversationId": "conv_002",
+      "participantName": "Priya Singh",
+      "participantNumber": "+919988776655",
+      "message": "Did you get in touch with the Dubai contact?",
+      "timestamp": "2024-09-16T09:15:00Z",
+      "direction": "incoming",
+      "messageType": "text",
+      "isDeleted": false
+    },
+    {
+      "platform": "WhatsApp",
+      "conversationId": "conv_002",
+      "participantName": "Priya Singh",
+      "participantNumber": "+919988776655",
+      "message": "Yes, spoke to +971501234567 yesterday. Deal is confirmed.",
+      "timestamp": "2024-09-16T09:17:00Z",
+      "direction": "outgoing",
+      "messageType": "text",
+      "isDeleted": false
+    },
+    {
+      "platform": "Telegram",
+      "conversationId": "conv_003",
+      "participantName": "Unknown",
+      "participantNumber": "+12025551234",
+      "message": "Transfer completed. Check your wallet.",
+      "timestamp": "2024-09-17T23:45:00Z",
+      "direction": "incoming",
+      "messageType": "text",
+      "isDeleted": true
+    },
+    {
+      "platform": "SMS",
+      "conversationId": "conv_004",
+      "participantName": null,
+      "participantNumber": "+919123456789",
+      "message": "Account details: HDFC Bank, A/C: 12345678901234, IFSC: HDFC0001234",
+      "timestamp": "2024-09-18T11:20:00Z",
+      "direction": "incoming",
+      "messageType": "text",
+      "isDeleted": false
+    },
+    {
+      "platform": "WhatsApp",
+      "conversationId": "conv_005",
+      "participantName": "Amit Verma",
+      "participantNumber": "+919876543211",
+      "message": "Meeting at the usual place at 2 AM tonight. Bring cash.",
+      "timestamp": "2024-09-19T20:30:00Z",
+      "direction": "incoming",
+      "messageType": "text",
+      "isDeleted": false
+    },
+    {
+      "platform": "WhatsApp",
+      "conversationId": "conv_001",
+      "participantName": "Rahul Kumar",
+      "participantNumber": "+919123456789",
+      "message": "Payment received. Thank you.",
+      "timestamp": "2024-09-20T10:00:00Z",
+      "direction": "incoming",
+      "messageType": "text",
+      "isDeleted": false
+    },
+    {
+      "platform": "WhatsApp",
+      "conversationId": "conv_006",
+      "participantName": "Boss",
+      "participantNumber": "+8613812345678",
+      "message": "New shipment arriving next week. Need to arrange pickup.",
+      "timestamp": "2024-09-21T15:30:00Z",
+      "direction": "incoming",
+      "messageType": "text",
+      "isDeleted": false
+    }
+  ],
+  "calls": [
+    {
+      "callType": "outgoing",
+      "phoneNumber": "+919123456789",
+      "contactName": "Rahul Kumar",
+      "duration": 185,
+      "timestamp": "2024-09-15T14:25:00Z"
+    },
+    {
+      "callType": "incoming",
+      "phoneNumber": "+919988776655",
+      "contactName": "Priya Singh",
+      "duration": 320,
+      "timestamp": "2024-09-16T09:10:00Z"
+    },
+    {
+      "callType": "outgoing",
+      "phoneNumber": "+971501234567",
+      "contactName": "Dubai Contact",
+      "duration": 425,
+      "timestamp": "2024-09-16T18:30:00Z"
+    },
+    {
+      "callType": "incoming",
+      "phoneNumber": "+12025551234",
+      "contactName": null,
+      "duration": 95,
+      "timestamp": "2024-09-17T23:30:00Z"
+    },
+    {
+      "callType": "missed",
+      "phoneNumber": "+919876543211",
+      "contactName": "Amit Verma",
+      "duration": 0,
+      "timestamp": "2024-09-19T01:45:00Z"
+    },
+    {
+      "callType": "outgoing",
+      "phoneNumber": "+919876543211",
+      "contactName": "Amit Verma",
+      "duration": 155,
+      "timestamp": "2024-09-19T02:15:00Z"
+    },
+    {
+      "callType": "incoming",
+      "phoneNumber": "+8613812345678",
+      "contactName": "Boss",
+      "duration": 280,
+      "timestamp": "2024-09-21T15:00:00Z"
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Rahul Kumar",
+      "phoneNumbers": ["+919123456789"],
+      "emails": ["rahul.k@email.com"],
+      "organization": "Tech Solutions Pvt Ltd",
+      "notes": "Business partner"
+    },
+    {
+      "name": "Priya Singh",
+      "phoneNumbers": ["+919988776655", "+919988776656"],
+      "emails": ["priya.singh@company.com"],
+      "organization": "Trading Co",
+      "notes": null
+    },
+    {
+      "name": "Amit Verma",
+      "phoneNumbers": ["+919876543211"],
+      "emails": [],
+      "organization": null,
+      "notes": "Met through mutual friend"
+    },
+    {
+      "name": "Dubai Contact",
+      "phoneNumbers": ["+971501234567"],
+      "emails": ["dubai@email.ae"],
+      "organization": "International Trading",
+      "notes": "Overseas partner"
+    },
+    {
+      "name": "Boss",
+      "phoneNumbers": ["+8613812345678"],
+      "emails": [],
+      "organization": null,
+      "notes": null
+    }
+  ],
+  "media": [
+    {
+      "mediaType": "image",
+      "fileName": "payment_proof.jpg",
+      "filePath": "/storage/DCIM/Camera/IMG_20240915_143000.jpg",
+      "fileSize": 2458624,
+      "mimeType": "image/jpeg",
+      "createdDate": "2024-09-15T14:30:00Z",
+      "modifiedDate": "2024-09-15T14:30:00Z",
+      "latitude": 22.7196,
+      "longitude": 75.8577,
+      "metadata": {
+        "camera": "Samsung Galaxy S21",
+        "resolution": "4032x3024"
+      }
+    },
+    {
+      "mediaType": "document",
+      "fileName": "transaction_details.pdf",
+      "filePath": "/storage/Downloads/transaction_details.pdf",
+      "fileSize": 156789,
+      "mimeType": "application/pdf",
+      "createdDate": "2024-09-16T10:00:00Z",
+      "modifiedDate": "2024-09-16T10:00:00Z",
+      "metadata": {}
+    },
+    {
+      "mediaType": "video",
+      "fileName": "meeting_recording.mp4",
+      "filePath": "/storage/DCIM/Camera/VID_20240919_021500.mp4",
+      "fileSize": 45678901,
+      "mimeType": "video/mp4",
+      "createdDate": "2024-09-19T02:15:00Z",
+      "modifiedDate": "2024-09-19T02:15:00Z",
+      "latitude": 22.7196,
+      "longitude": 75.8577,
+      "metadata": {
+        "duration": 185,
+        "resolution": "1920x1080"
+      }
+    }
+  ],
+  "apps": [
+    {
+      "appName": "WhatsApp",
+      "packageName": "com.whatsapp",
+      "version": "2.23.18.76",
+      "installDate": "2023-05-10T00:00:00Z"
+    },
+    {
+      "appName": "Telegram",
+      "packageName": "org.telegram.messenger",
+      "version": "10.0.8",
+      "installDate": "2023-06-15T00:00:00Z"
+    },
+    {
+      "appName": "Binance",
+      "packageName": "com.binance.dev",
+      "version": "2.74.1",
+      "installDate": "2024-01-20T00:00:00Z"
+    },
+    {
+      "appName": "Trust Wallet",
+      "packageName": "com.wallet.crypto.trustapp",
+      "version": "8.5",
+      "installDate": "2024-02-05T00:00:00Z"
+    }
+  ],
+  "locations": [
+    {
+      "latitude": 22.7196,
+      "longitude": 75.8577,
+      "accuracy": 10.5,
+      "timestamp": "2024-09-15T14:30:00Z",
+      "source": "GPS"
+    },
+    {
+      "latitude": 22.7205,
+      "longitude": 75.8590,
+      "accuracy": 15.2,
+      "timestamp": "2024-09-16T09:15:00Z",
+      "source": "GPS"
+    },
+    {
+      "latitude": 22.7180,
+      "longitude": 75.8560,
+      "accuracy": 8.7,
+      "timestamp": "2024-09-19T02:15:00Z",
+      "source": "GPS"
+    },
+    {
+      "latitude": 22.7210,
+      "longitude": 75.8600,
+      "accuracy": 12.3,
+      "timestamp": "2024-09-21T15:30:00Z",
+      "source": "Network"
+    }
+  ]
+}

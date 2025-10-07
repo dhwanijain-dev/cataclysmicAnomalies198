@@ -1,14 +1,15 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Search, Sparkles, Clock, ArrowRight } from "lucide-react"
 import { useRouter } from "next/navigation"
+import { apiClient } from "@/lib/api-client"
+import { useToast } from "@/hooks/use-toast"
 
 const suggestedQueries = [
   "Show me chat records containing crypto addresses",
@@ -28,24 +29,86 @@ const recentQueries = [
 export function QueryInterface() {
   const [query, setQuery] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [cases, setCases] = useState<any[]>([])
+  const [selectedCaseId, setSelectedCaseId] = useState<string>("")
   const router = useRouter()
+  const { toast } = useToast()
+
+  // Fetch cases on component mount
+  useEffect(() => {
+    const fetchCases = async () => {
+      try {
+        const response = await apiClient.getCases();
+        if (response.success && response.data) {
+          const casesData = Array.isArray(response.data) ? response.data : (response.data as any).cases || [];
+          setCases(casesData);
+          // Auto-select first case if available
+          if (casesData.length > 0) {
+            setSelectedCaseId(casesData[0].id);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch cases:', error);
+      }
+    };
+    fetchCases();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!query.trim()) return
 
     setIsLoading(true)
-    // Simulate processing and redirect to analysis page
-    setTimeout(() => {
-      setIsLoading(false)
-      router.push("/analysis")
-    }, 1500)
+    
+    try {
+      const response = await apiClient.executeQuery(query, selectedCaseId || undefined);
+      
+      if (response.success && response.data) {
+        toast({
+          title: "Query Executed",
+          description: `Found ${response.data.totalResults} relevant items. Redirecting to analysis page.`,
+        });
+        
+        // Store query results in sessionStorage for the analysis page
+        sessionStorage.setItem('queryResults', JSON.stringify({
+          query,
+          results: response.data
+        }));
+        
+        router.push("/analysis");
+      }
+    } catch (error) {
+      toast({
+        title: "Query Failed",
+        description: error instanceof Error ? error.message : "Failed to execute query. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   }
 
-  const handleSuggestionClick = (suggestion: string) => {
-    setQuery(suggestion)
-    // Auto-redirect to analysis page with the suggestion
-    router.push("/analysis")
+  const handleSuggestionClick = async (suggestion: string) => {
+    setQuery(suggestion);
+    
+    try {
+      const response = await apiClient.executeQuery(suggestion, selectedCaseId || undefined);
+      
+      if (response.success && response.data) {
+        sessionStorage.setItem('queryResults', JSON.stringify({
+          query: suggestion,
+          results: response.data
+        }));
+        
+        router.push("/analysis");
+      }
+    } catch (error) {
+      toast({
+        title: "Query Failed",
+        description: "Failed to execute suggested query. Please try again.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (

@@ -1,0 +1,518 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
+import { analyzeWithAI, generateEmbedding } from '@/lib/gemini';
+import { cosineSimilarity, createAPIResponse, createErrorResponse } from '@/lib/utils';
+
+export async function POST(request: NextRequest) {
+  const startTime = Date.now();
+  
+  try {
+    const { query, caseId, filters } = await request.json();
+
+    if (!query) {
+      return NextResponse.json(
+        createErrorResponse('Query is required', 400),
+        { status: 400 }
+      );
+    }
+
+    // Parse the natural language query to understand intent
+    const queryIntent = await parseQueryIntent(query);
+
+    // Execute search based on intent
+    let results: any = {};
+
+    if (queryIntent.searchChats) {
+      results.chats = await searchChats(query, caseId, filters);
+    }
+
+    if (queryIntent.searchCalls) {
+      results.calls = await searchCalls(query, caseId, filters);
+    }
+
+    if (queryIntent.searchContacts) {
+      results.contacts = await searchContacts(query, caseId, filters);
+    }
+
+    if (queryIntent.searchMedia) {
+      results.media = await searchMedia(query, caseId, filters);
+    }
+
+    if (queryIntent.findEntities) {
+      results.entities = await extractEntities(query, caseId);
+    }
+
+    if (queryIntent.findConnections) {
+      results.connections = await findConnections(caseId, queryIntent.connectionParams);
+    }
+
+    // Generate AI summary
+    const aiSummary = await generateAISummary(query, results);
+
+        // Save query to database only if we have a caseId\n    let queryRecord;\n    if (caseId) {\n      queryRecord = await prisma.query.create({\n        data: {\n          queryText: query,\n          queryType: 'natural_language',\n          results: results,\n          resultCount: getTotalResultCount(results),\n          executionTime: Date.now() - startTime,\n          caseId,\n        },\n      });\n    }
+
+    return NextResponse.json(\n      createAPIResponse({\n        queryId: queryRecord?.id || null,\n        results,\n        summary: aiSummary,\n        executionTime: Date.now() - startTime,\n        totalResults: getTotalResultCount(results),\n        caseId: caseId || null,\n      }, 'Query processed successfully')\n    );
+  } catch (error) {
+    console.error('Query error:', error);
+    return NextResponse.json(
+      createErrorResponse(
+        'Failed to process query',
+        500,
+        error instanceof Error ? error.message : 'Unknown error'
+      ),
+      { status: 500 }
+    );
+  }
+}
+
+async function parseQueryIntent(query: string) {
+  const lowerQuery = query.toLowerCase();
+  
+  return {
+    searchChats: /\b(chat|message|conversation|whatsapp|telegram|sms|text)\b/i.test(query),
+    searchCalls: /\b(call|phone|dialed|received|missed)\b/i.test(query),
+    searchContacts: /\b(contact|person|people|number)\b/i.test(query),
+    searchMedia: /\b(image|photo|video|media|file|document)\b/i.test(query),
+    findEntities: /\b(crypto|bitcoin|address|email|ip|foreign|international)\b/i.test(query),
+    findConnections: /\b(connect|link|relation|network|between|associate)\b/i.test(query),
+    connectionParams: extractConnectionParams(query),
+  };
+}
+
+function extractConnectionParams(query: string) {
+  const params: any = {};
+  
+  // Extract phone numbers
+  const phoneRegex = /\b(\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b/g;
+  const phones = query.match(phoneRegex);
+  if (phones) params.phoneNumbers = phones;
+  
+  // Extract crypto addresses (simplified)
+  const cryptoRegex = /\b(0x[a-fA-F0-9]{40}|[13][a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[a-z0-9]{39,59})\b/g;
+  const cryptoAddresses = query.match(cryptoRegex);
+  if (cryptoAddresses) params.cryptoAddresses = cryptoAddresses;
+  
+  return params;
+}
+
+async function searchChats(query: string, caseId?: string, filters?: any) {
+  // Get devices for this case or all devices if no case specified
+  const devices = await prisma.device.findMany({
+    where: caseId ? { caseId } : {},
+    select: { id: true },
+  });
+
+  const deviceIds = devices.map(d => d.id);
+
+  // Generate embedding for semantic search
+  const queryEmbedding = await generateEmbedding(query);
+
+  // First, get all chats for the case
+  const allChats = await prisma.chat.findMany({
+    where: {
+      deviceId: { in: deviceIds },
+      ...(filters?.startDate && { timestamp: { gte: new Date(filters.startDate) } }),
+      ...(filters?.endDate && { timestamp: { lte: new Date(filters.endDate) } }),
+      ...(filters?.platform && { platform: filters.platform }),
+    },
+    include: {
+      device: {
+        select: {
+          deviceName: true,
+          phoneNumber: true,
+        },
+      },
+    },
+    orderBy: { timestamp: 'desc' },
+  });
+
+  // Perform semantic search using cosine similarity
+  const chatsWithScores = allChats
+    .filter((chat: any) => chat.embedding && chat.embedding.length > 0)
+    .map((chat: any) => ({
+      ...chat,
+      similarityScore: cosineSimilarity(queryEmbedding, chat.embedding),
+    }))
+    .filter((chat: any) => chat.similarityScore > 0.5) // Threshold
+    .sort((a: any, b: any) => b.similarityScore - a.similarityScore)
+    .slice(0, 50); // Limit results
+
+  // Also perform keyword search for specific patterns
+  const keywordMatches = allChats.filter((chat: any) => {
+    const searchText = `${chat.message} ${chat.participantName || ''} ${chat.participantNumber || ''}`.toLowerCase();
+    
+    // Check for crypto addresses
+    if (/\b(0x[a-fA-F0-9]{40}|[13][a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[a-z0-9]{39,59})\b/.test(searchText)) {
+      return true;
+    }
+    
+    // Check for foreign numbers (country codes)
+    if (/\+(?!91)\d{1,3}/.test(searchText)) {
+      return true;
+    }
+    
+    // Check for suspicious keywords
+    const suspiciousKeywords = ['payment', 'transfer', 'money', 'bitcoin', 'crypto', 'wallet', 'bank'];
+    return suspiciousKeywords.some(keyword => searchText.includes(keyword));
+  });
+
+  // Merge and deduplicate results
+  const combinedResults = [...chatsWithScores];
+  keywordMatches.forEach((match: any) => {
+    if (!combinedResults.find((r: any) => r.id === match.id)) {
+      combinedResults.push({ ...match, similarityScore: 0.6 });
+    }
+  });
+
+  return combinedResults.slice(0, 100);
+}
+
+async function searchCalls(query: string, caseId?: string, filters?: any) {
+  const devices = await prisma.device.findMany({
+    where: caseId ? { caseId } : {},
+    select: { id: true },
+  });
+
+  const deviceIds = devices.map((d: any) => d.id);
+
+  const calls = await prisma.call.findMany({
+    where: {
+      deviceId: { in: deviceIds },
+      ...(filters?.startDate && { timestamp: { gte: new Date(filters.startDate) } }),
+      ...(filters?.endDate && { timestamp: { lte: new Date(filters.endDate) } }),
+      ...(filters?.callType && { callType: filters.callType }),
+    },
+    include: {
+      device: {
+        select: {
+          deviceName: true,
+          phoneNumber: true,
+        },
+      },
+    },
+    orderBy: { timestamp: 'desc' },
+    take: 100,
+  });
+
+  // Filter for foreign numbers if mentioned in query
+  if (/foreign|international/i.test(query)) {
+    return calls.filter((call: any) => /\+(?!91)\d{1,3}/.test(call.phoneNumber));
+  }
+
+  return calls;
+}
+
+async function searchContacts(query: string, caseId?: string, filters?: any) {
+  const devices = await prisma.device.findMany({
+    where: caseId ? { caseId } : {},
+    select: { id: true },
+  });
+
+  const deviceIds = devices.map((d: any) => d.id);
+
+  const contacts = await prisma.contact.findMany({
+    where: {
+      deviceId: { in: deviceIds },
+      OR: [
+        { name: { contains: query, mode: 'insensitive' } },
+        { phoneNumbers: { hasSome: [query] } },
+        { emails: { hasSome: [query] } },
+      ],
+    },
+    include: {
+      device: {
+        select: {
+          deviceName: true,
+        },
+      },
+    },
+    take: 50,
+  });
+
+  return contacts;
+}
+
+async function searchMedia(query: string, caseId?: string, filters?: any) {
+  const devices = await prisma.device.findMany({
+    where: caseId ? { caseId } : {},
+    select: { id: true },
+  });
+
+  const deviceIds = devices.map((d: any) => d.id);
+
+  const media = await prisma.media.findMany({
+    where: {
+      deviceId: { in: deviceIds },
+      ...(filters?.mediaType && { mediaType: filters.mediaType }),
+      ...(filters?.startDate && { createdDate: { gte: new Date(filters.startDate) } }),
+      ...(filters?.endDate && { createdDate: { lte: new Date(filters.endDate) } }),
+    },
+    include: {
+      device: {
+        select: {
+          deviceName: true,
+        },
+      },
+    },
+    orderBy: { createdDate: 'desc' },
+    take: 50,
+  });
+
+  return media;
+}
+
+async function extractEntities(query: string, caseId?: string) {
+  // Search for specific entity patterns across all data
+  const devices = await prisma.device.findMany({
+    where: caseId ? { caseId } : {},
+    select: { id: true },
+  });
+
+  const deviceIds = devices.map((d: any) => d.id);
+
+  // Search chats for entities
+  const chats = await prisma.chat.findMany({
+    where: { deviceId: { in: deviceIds } },
+    select: { message: true, participantNumber: true, timestamp: true },
+  });
+
+  const entities: {
+    cryptoAddresses: any[];
+    phoneNumbers: any[];
+    emails: any[];
+    urls: any[];
+    ipAddresses: any[];
+  } = {
+    cryptoAddresses: [],
+    phoneNumbers: [],
+    emails: [],
+    urls: [],
+    ipAddresses: [],
+  };
+
+  const cryptoRegex = /\b(0x[a-fA-F0-9]{40}|[13][a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[a-z0-9]{39,59})\b/g;
+  const phoneRegex = /\b(\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b/g;
+  const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g;
+  const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
+  const ipRegex = /\b(?:\d{1,3}\.){3}\d{1,3}\b/g;
+
+  chats.forEach((chat: any) => {
+    const text = chat.message;
+    
+    const cryptos = text.match(cryptoRegex);
+    if (cryptos) {
+      cryptos.forEach((crypto: string) => {
+        entities.cryptoAddresses.push({
+          value: crypto,
+          context: text.substring(0, 100),
+          timestamp: chat.timestamp,
+        });
+      });
+    }
+
+    const phones = text.match(phoneRegex);
+    if (phones) {
+      phones.forEach((phone: string) => {
+        entities.phoneNumbers.push({
+          value: phone,
+          context: text.substring(0, 100),
+          timestamp: chat.timestamp,
+        });
+      });
+    }
+
+    const emails = text.match(emailRegex);
+    if (emails) {
+      emails.forEach((email: string) => {
+        entities.emails.push({
+          value: email,
+          context: text.substring(0, 100),
+          timestamp: chat.timestamp,
+        });
+      });
+    }
+
+    const urls = text.match(urlRegex);
+    if (urls) {
+      urls.forEach((url: string) => {
+        entities.urls.push({
+          value: url,
+          context: text.substring(0, 100),
+          timestamp: chat.timestamp,
+        });
+      });
+    }
+
+    const ips = text.match(ipRegex);
+    if (ips) {
+      ips.forEach((ip: string) => {
+        entities.ipAddresses.push({
+          value: ip,
+          context: text.substring(0, 100),
+          timestamp: chat.timestamp,
+        });
+      });
+    }
+  });
+
+  // Store unique entities in database
+  for (const [entityType, entityList] of Object.entries(entities)) {
+    for (const entity of entityList as any[]) {
+      await prisma.entity.upsert({
+        where: {
+          entityType_value: {
+            entityType,
+            value: entity.value,
+          },
+        },
+        update: {
+          occurrences: { increment: 1 },
+          contexts: { push: entity },
+        },
+        create: {
+          entityType,
+          value: entity.value,
+          occurrences: 1,
+          contexts: [entity],
+        },
+      });
+    }
+  }
+
+  return entities;
+}
+
+async function findConnections(caseId?: string, params?: any) {
+  const devices = await prisma.device.findMany({
+    where: caseId ? { caseId } : {},
+    select: { id: true, phoneNumber: true },
+  });
+
+  const deviceIds = devices.map((d: any) => d.id);
+
+  // Find common contacts across devices
+  const contacts = await prisma.contact.findMany({
+    where: { deviceId: { in: deviceIds } },
+  });
+
+  // Find call patterns
+  const calls = await prisma.call.findMany({
+    where: { deviceId: { in: deviceIds } },
+  });
+
+  // Analyze communication patterns
+  const phoneNumberFrequency: { [key: string]: number } = {};
+  calls.forEach((call: any) => {
+    phoneNumberFrequency[call.phoneNumber] = (phoneNumberFrequency[call.phoneNumber] || 0) + 1;
+  });
+
+  // Get top communicators
+  const topCommunicators = Object.entries(phoneNumberFrequency)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 20)
+    .map(([number, count]) => ({ phoneNumber: number, contactCount: count }));
+
+  // Find chat-call correlations
+  const chats = await prisma.chat.findMany({
+    where: { deviceId: { in: deviceIds } },
+    select: { participantNumber: true, timestamp: true },
+  });
+
+  const connections = {
+    topCommunicators,
+    commonContacts: findCommonContacts(contacts),
+    timelineCorrelations: findTimelineCorrelations(chats, calls),
+  };
+
+  return connections;
+}
+
+function findCommonContacts(contacts: any[]) {
+  const contactMap: { [key: string]: Set<string> } = {};
+  
+  contacts.forEach(contact => {
+    contact.phoneNumbers.forEach((number: string) => {
+      if (!contactMap[number]) {
+        contactMap[number] = new Set();
+      }
+      contactMap[number].add(contact.deviceId);
+    });
+  });
+
+  return Object.entries(contactMap)
+    .filter(([, devices]) => devices.size > 1)
+    .map(([number, devices]) => ({
+      phoneNumber: number,
+      sharedAcrossDevices: Array.from(devices),
+    }));
+}
+
+function findTimelineCorrelations(chats: any[], calls: any[]) {
+  // Find calls followed by chats within 1 hour
+  const correlations: any[] = [];
+  
+  calls.forEach(call => {
+    const relatedChats = chats.filter(chat => {
+      const timeDiff = Math.abs(
+        new Date(chat.timestamp).getTime() - new Date(call.timestamp).getTime()
+      );
+      return (
+        chat.participantNumber === call.phoneNumber &&
+        timeDiff < 3600000 // 1 hour in milliseconds
+      );
+    });
+
+    if (relatedChats.length > 0) {
+      correlations.push({
+        call,
+        relatedChats: relatedChats.length,
+        timeGap: relatedChats[0] ? 
+          Math.abs(new Date(relatedChats[0].timestamp).getTime() - new Date(call.timestamp).getTime()) / 60000 : 0,
+      });
+    }
+  });
+
+  return correlations.slice(0, 20);
+}
+
+async function generateAISummary(query: string, results: any) {
+  const context = `
+Query: ${query}
+
+Results Summary:
+- Chats found: ${results.chats?.length || 0}
+- Calls found: ${results.calls?.length || 0}
+- Contacts found: ${results.contacts?.length || 0}
+- Media files found: ${results.media?.length || 0}
+- Entities extracted: ${JSON.stringify(results.entities || {})}
+- Connections identified: ${results.connections ? 'Yes' : 'No'}
+
+Sample Data:
+${JSON.stringify(results, null, 2).substring(0, 2000)}
+  `;
+
+  try {
+    const summary = await analyzeWithAI(
+      `Analyze these forensic investigation results and provide a concise summary highlighting:
+1. Key findings relevant to the query
+2. Suspicious patterns or anomalies
+3. Important connections or relationships
+4. Recommended next steps for the investigation`,
+      context
+    );
+
+    return summary;
+  } catch (error) {
+    console.error('Error generating AI summary:', error);
+    return 'Summary generation failed. Please review the raw results.';
+  }
+}
+
+function getTotalResultCount(results: any): number {
+  let count = 0;
+  if (results.chats) count += results.chats.length;
+  if (results.calls) count += results.calls.length;
+  if (results.contacts) count += results.contacts.length;
+  if (results.media) count += results.media.length;
+  return count;
+}

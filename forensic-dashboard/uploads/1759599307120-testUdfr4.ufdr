@@ -1,0 +1,90 @@
+{
+  "case_number": "CYB-2025-01337",
+  "date_of_report": "2025-10-02",
+  "investigating_officer": "Det. K. Sharma",
+  "device_information": {
+    "device_owner": "John Doe (Suspect)",
+    "model": "iPhone 14 Pro",
+    "operating_system": "iOS 18.1",
+    "phone_number": "+919876543210",
+    "extraction_tool": "Cellebrite UFED v7.5"
+  },
+  "summary_of_key_findings": [
+    {
+      "title": "Communications with Foreign Contact",
+      "details": "Frequent communication with Alex 'Shadow' Smith (+44 7700 900123) found in call logs and WhatsApp messages."
+    },
+    {
+      "title": "Use of Cryptocurrency",
+      "details": "Chat messages reference BTC and ETH addresses; browser history shows visits to crypto exchange and a wallet screenshot."
+    },
+    {
+      "title": "Discovery of Cryptographic Keys",
+      "details": "A note titled 'Backup Info' containing a 12-word wallet seed phrase and a hardware wallet private key string was found."
+    }
+  ],
+  "detailed_call_logs": [
+    {
+      "timestamp_utc": "2025-09-30T22:30:01Z",
+      "direction": "Incoming",
+      "contact_name": "Alex 'Shadow' Smith",
+      "number": "+44 7700 900123",
+      "duration_s": 540
+    },
+    {
+      "timestamp_utc": "2025-09-29T10:15:45Z",
+      "direction": "Incoming",
+      "contact_name": "Jane Roe",
+      "number": "+919123456789",
+      "duration_s": 98
+    },
+    {
+      "timestamp_utc": "2025-09-28T19:05:12Z",
+      "direction": "Outgoing",
+      "contact_name": "Alex 'Shadow' Smith",
+      "number": "+44 7700 900123",
+      "duration_s": 312
+    }
+  ],
+  "relevant_chat_conversations": [
+    {
+      "application": "WhatsApp",
+      "participant": "Alex 'Shadow' Smith (+44 7700 900123)",
+      "messages": [
+        {
+          "timestamp_utc": "2025-09-30T22:45:10Z",
+          "direction": "Outgoing",
+          "text": "The package is ready. Need the payment to proceed."
+        },
+        {
+          "timestamp_utc": "2025-09-30T22:46:02Z",
+          "direction": "Incoming",
+          "text": "Good. Use the usual wallet. Or this new one for ETH: 0x1B9c255D5084f7b32A2A8bA52C3121d51A9a87dF"
+        },
+        {
+          "timestamp_utc": "2025-09-30T22:48:30Z",
+          "direction": "Outgoing",
+          "text": "Okay, sending it now. For confirmation, my BTC address is bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh. Send a small amount there first."
+        }
+      ]
+    }
+  ],
+  "notes_and_sensitive_data": {
+    "title": "Backup Info",
+    "created_date": "2025-09-26T12:00:00Z",
+    "content": {
+      "wallet_seed_phrase": "tired gentle myth piano penalty mandate angry legal fiscal luxury rival absorb",
+      "hardware_wallet_key_private": "L5Kz4vna3aK8gY3eYyB1ZzXvY...[REDACTED]...d9H7gP4jWq2s"
+    }
+  },
+  "metadata": {
+    "generated_by": "AI UFDR Formatter",
+    "generated_at": "2025-10-02T18:29:13.387174Z",
+    "format_version": "1.0"
+  },
+  "problem_statement": {
+    "background": "During digital forensic investigations, UFDR reports obtained from seized digital devices contain huge amounts of data like chats, calls, images, and videos. Going through this manually takes a lot of time and delays finding important evidence. Investigating Officers need a tool that makes this data easy to search and use.",
+    "description": "Build an AI-based agent that can ingest UFDRs and allow CIOs to run natural language queries (e.g., 'show me chat records containing crypto addresses' or 'list all communications with foreign numbers'). The tool should intelligently retrieve relevant data, highlight key findings, and generate easy-to-understand outputs without requiring the officer to have deep technical expertise. The tool should also be able to provide interconnectivity and linkages across other forensics data.",
+    "expected_solution": "An AI based software solution that ingests UFDRs from forensic tools, provides a natural language query interface for IOs, generates easily readable reports of relevant results, and reduces the time taken to extract actionable insights from UFDRs."
+  }
+}

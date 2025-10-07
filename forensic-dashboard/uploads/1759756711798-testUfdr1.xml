@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UFDR_Report>
+    <Metadata>
+        <CaseNumber>COMP-TEST-2025-001</CaseNumber>
+        <InvestigatingOfficer>Det. Sarah Johnson</InvestigatingOfficer>
+        <ExtractionTool>Cellebrite UFED v7.5</ExtractionTool>
+        <ExtractionDate>2025-10-06T12:00:00Z</ExtractionDate>
+        <DeviceInformation>
+            <Owner>Marcus "Shadow" Rodriguez (Primary Suspect)</Owner>
+            <Model>Samsung Galaxy S23 Ultra</Model>
+            <OS>Android 14</OS>
+            <IMEI>354728361234567</IMEI>
+            <PhoneNumber>+1-555-0199</PhoneNumber>
+        </DeviceInformation>
+    </Metadata>
+
+    <Communications>
+        <Messages>
+            <Message>
+                <Platform>WhatsApp</Platform>
+                <ConversationID>drug_supplier_001</ConversationID>
+                <ParticipantName>Carlos "El Jefe" Martinez</ParticipantName>
+                <ParticipantNumber>+52-555-0101</ParticipantNumber>
+                <Message>Lab results came back clean. 98% purity on the cocaine. Ready to ship 50 kilos to the usual location.</Message>
+                <Timestamp>2025-10-02T14:30:15Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>WhatsApp</Platform>
+                <ConversationID>drug_supplier_001</ConversationID>
+                <ParticipantName>Carlos "El Jefe" Martinez</ParticipantName>
+                <ParticipantNumber>+52-555-0101</ParticipantNumber>
+                <Message>Payment in Bitcoin as agreed. Send to this address: bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4 - exactly 15.7 BTC</Message>
+                <Timestamp>2025-10-02T14:45:22Z</Timestamp>
+                <Direction>outgoing</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>Signal</Platform>
+                <ConversationID>crypto_laundering</ConversationID>
+                <ParticipantName>Viktor "Mixer" Petrov</ParticipantName>
+                <ParticipantNumber>+7-495-555-0123</ParticipantNumber>
+                <Message>Ethereum address for clean funds: 0x742d35Cc6C8589cb5D8f8a9F7e2a7c0D5e3F4A1B. Can handle up to 500 ETH per transaction. Commission is 8%.</Message>
+                <Timestamp>2025-10-03T09:15:33Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>Telegram</Platform>
+                <ConversationID>weapons_dealer</ConversationID>
+                <ParticipantName>Ahmed "Arsenal" Hassan</ParticipantName>
+                <ParticipantNumber>+971-50-555-0167</ParticipantNumber>
+                <Message>Got the new batch. 5 keys of premium white available. Price per key is 50K. Also have some party favors if you're interested - fentanyl patches, 100mcg each.</Message>
+                <Timestamp>2025-10-03T18:20:44Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>WhatsApp</Platform>
+                <ConversationID>financial_crimes</ConversationID>
+                <ParticipantName>Lisa "Books" Chen</ParticipantName>
+                <ParticipantNumber>+86-138-555-0199</ParticipantNumber>
+                <Message>Shell company is set up in Cayman Islands. Bank account ready for transfers. Can process up to 2 million USD per month through legitimate-looking tech consulting invoices.</Message>
+                <Timestamp>2025-10-04T11:30:12Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>Signal</Platform>
+                <ConversationID>drug_distribution</ConversationID>
+                <ParticipantName>Tony "Street" Williams</ParticipantName>
+                <ParticipantNumber>+1-555-0177</ParticipantNumber>
+                <Message>Fentanyl shipment from China delayed until next month. Heroin prices going up 20% due to supply issues. Cocaine still flowing steady from Colombia.</Message>
+                <Timestamp>2025-10-04T16:45:28Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>Telegram</Platform>
+                <ConversationID>money_laundering</ConversationID>
+                <ParticipantName>Roberto "Wash" Mendez</ParticipantName>
+                <ParticipantNumber>+507-555-0145</ParticipantNumber>
+                <Message>Art auction went well. Moved 3.2 million through fake art sales. Next batch of dirty money can go through real estate deals in Miami.</Message>
+                <Timestamp>2025-10-05T08:20:17Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>WhatsApp</Platform>
+                <ConversationID>human_trafficking</ConversationID>
+                <ParticipantName>Dmitri "Transport" Volkov</ParticipantName>
+                <ParticipantNumber>+380-44-555-0156</ParticipantNumber>
+                <Message>25 girls ready for transport from Ukraine to Western Europe. Documentation forged. Payment: 50K USD per person. Transport route secure through Poland.</Message>
+                <Timestamp>2025-10-05T14:10:33Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>Signal</Platform>
+                <ConversationID>arms_trafficking</ConversationID>
+                <ParticipantName>Colonel "Iron" Mubarak</ParticipantName>
+                <ParticipantNumber>+20-10-555-0134</ParticipantNumber>
+                <Message>Kalashnikov rifles available - 200 units. Also have RPGs and C4 explosives. Meeting point: Warehouse District, Pier 7. Come alone.</Message>
+                <Timestamp>2025-10-05T19:45:55Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>Telegram</Platform>
+                <ConversationID>cybercrime</ConversationID>
+                <ParticipantName>Alex "Zero Day" Petrov</ParticipantName>
+                <ParticipantNumber>+7-812-555-0188</ParticipantNumber>
+                <Message>Ransomware deployment successful. 47 companies infected. Demanding 500 BTC total. Monero wallet for anonymous payments: 4A1BvqYxZ7qjhYwJ8rN5m3P9QzXx2VvKkRsT7FgHh8dJ</Message>
+                <Timestamp>2025-10-06T07:15:42Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>WhatsApp</Platform>
+                <ConversationID>corruption</ConversationID>
+                <ParticipantName>Judge "Hammer" Thompson</ParticipantName>
+                <ParticipantNumber>+1-555-0166</ParticipantNumber>
+                <Message>Case dismissed as discussed. Your payment of 250K USD has been received in the Bahamas account. Future cases can be handled similarly.</Message>
+                <Timestamp>2025-10-06T10:30:18Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+            <Message>
+                <Platform>Signal</Platform>
+                <ConversationID>drug_supplier_001</ConversationID>
+                <ParticipantName>Carlos "El Jefe" Martinez</ParticipantName>
+                <ParticipantNumber>+52-555-0101</ParticipantNumber>
+                <Message>Border patrol schedules obtained. Safe crossing window: Tuesday 3-6 AM through Sector 7. Trucks loaded with merchandise ready to move.</Message>
+                <Timestamp>2025-10-06T11:20:55Z</Timestamp>
+                <Direction>incoming</Direction>
+                <MessageType>text</MessageType>
+                <IsDeleted>false</IsDeleted>
+            </Message>
+        </Messages>
+
+        <Calls>
+            <Call>
+                <CallerName>Carlos "El Jefe" Martinez</CallerName>
+                <CallerNumber>+52-555-0101</CallerNumber>
+                <Timestamp>2025-10-02T13:45:30Z</Timestamp>
+                <Direction>incoming</Direction>
+                <DurationSeconds>320</DurationSeconds>
+                <CallType>voice</CallType>
+                <Status>answered</Status>
+            </Call>
+            <Call>
+                <CallerName>Viktor "Mixer" Petrov</CallerName>
+                <CallerNumber>+7-495-555-0123</CallerNumber>
+                <Timestamp>2025-10-03T08:30:15Z</Timestamp>
+                <Direction>outgoing</Direction>
+                <DurationSeconds>180</DurationSeconds>
+                <CallType>voice</CallType>
+                <Status>answered</Status>
+            </Call>
+            <Call>
+                <CallerName>Ahmed "Arsenal" Hassan</CallerName>
+                <CallerNumber>+971-50-555-0167</CallerNumber>
+                <Timestamp>2025-10-03T17:15:42Z</Timestamp>
+                <Direction>incoming</Direction>
+                <DurationSeconds>450</DurationSeconds>
+                <CallType>voice</CallType>
+                <Status>answered</Status>
+            </Call>
+            <Call>
+                <CallerName>Lisa "Books" Chen</CallerName>
+                <CallerNumber>+86-138-555-0199</CallerNumber>
+                <Timestamp>2025-10-04T10:45:18Z</Timestamp>
+                <Direction>outgoing</Direction>
+                <DurationSeconds>280</DurationSeconds>
+                <CallType>voice</CallType>
+                <Status>answered</Status>
+            </Call>
+            <Call>
+                <CallerName>Tony "Street" Williams</CallerName>
+                <CallerNumber>+1-555-0177</CallerNumber>
+                <Timestamp>2025-10-04T16:00:33Z</Timestamp>
+                <Direction>incoming</Direction>
+                <DurationSeconds>195</DurationSeconds>
+                <CallType>voice</CallType>
+                <Status>answered</Status>
+            </Call>
+            <Call>
+                <CallerName>Roberto "Wash" Mendez</CallerName>
+                <CallerNumber>+507-555-0145</CallerNumber>
+                <Timestamp>2025-10-05T07:30:22Z</Timestamp>
+                <Direction>outgoing</Direction>
+                <DurationSeconds>380</DurationSeconds>
+                <CallType>voice</CallType>
+                <Status>answered</Status>
+            </Call>
+            <Call>
+                <CallerName>Dmitri "Transport" Volkov</CallerName>
+                <CallerNumber>+380-44-555-0156</CallerNumber>
+                <Timestamp>2025-10-05T13:15:44Z</Timestamp>
+                <Direction>incoming</Direction>
+                <DurationSeconds>520</DurationSeconds>
+                <CallType>voice</CallType>
+                <Status>answered</Status>
+            </Call>
+            <Call>
+                <CallerName>Colonel "Iron" Mubarak</CallerName>
+                <CallerNumber>+20-10-555-0134</CallerNumber>
+                <Timestamp>2025-10-05T19:00:12Z</Timestamp>
+                <Direction>outgoing</Direction>
+                <DurationSeconds>145</DurationSeconds>
+                <CallType>voice</CallType>
+                <Status>answered</Status>
+            </Call>
+        </Calls>
+    </Communications>
+
+    <Contacts>
+        <Contact>
+            <ID>1</ID>
+            <Name>Carlos "El Jefe" Martinez</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+52-555-0101</PhoneNumber>
+                <PhoneNumber>+52-555-0102</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>cmartinez@encrypted-mail.com</Email>
+            </Emails>
+            <Organization>Aztec Trading Corp</Organization>
+            <Notes>Primary drug supplier - high-grade cocaine from Colombia</Notes>
+        </Contact>
+        <Contact>
+            <ID>2</ID>
+            <Name>Viktor "Mixer" Petrov</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+7-495-555-0123</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>vpetrov@crypto-anon.net</Email>
+            </Emails>
+            <Organization>Digital Assets Consulting</Organization>
+            <Notes>Cryptocurrency laundering specialist</Notes>
+        </Contact>
+        <Contact>
+            <ID>3</ID>
+            <Name>Ahmed "Arsenal" Hassan</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+971-50-555-0167</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>ahassan@secure-comm.ae</Email>
+            </Emails>
+            <Organization>Gulf Security Solutions</Organization>
+            <Notes>Weapons supplier and drug dealer</Notes>
+        </Contact>
+        <Contact>
+            <ID>4</ID>
+            <Name>Lisa "Books" Chen</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+86-138-555-0199</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>lchen@offshore-consulting.com</Email>
+            </Emails>
+            <Organization>Pacific Financial Services</Organization>
+            <Notes>Money laundering through shell companies</Notes>
+        </Contact>
+        <Contact>
+            <ID>5</ID>
+            <Name>Tony "Street" Williams</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+1-555-0177</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>twilliams@urban-logistics.com</Email>
+            </Emails>
+            <Organization>Street Distribution Network</Organization>
+            <Notes>Street-level drug distribution coordinator</Notes>
+        </Contact>
+        <Contact>
+            <ID>6</ID>
+            <Name>Roberto "Wash" Mendez</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+507-555-0145</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>rmendez@panama-art.com</Email>
+            </Emails>
+            <Organization>Panama Art Gallery</Organization>
+            <Notes>Money laundering through art and real estate</Notes>
+        </Contact>
+        <Contact>
+            <ID>7</ID>
+            <Name>Dmitri "Transport" Volkov</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+380-44-555-0156</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>dvolkov@euro-logistics.ua</Email>
+            </Emails>
+            <Organization>Eastern European Transport</Organization>
+            <Notes>Human trafficking operations</Notes>
+        </Contact>
+        <Contact>
+            <ID>8</ID>
+            <Name>Colonel "Iron" Mubarak</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+20-10-555-0134</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>cmubarak@defense-surplus.eg</Email>
+            </Emails>
+            <Organization>Desert Arms Trading</Organization>
+            <Notes>Military weapons supplier</Notes>
+        </Contact>
+        <Contact>
+            <ID>9</ID>
+            <Name>Alex "Zero Day" Petrov</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+7-812-555-0188</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>apetrov@dark-cyber.net</Email>
+            </Emails>
+            <Organization>Cyber Security Solutions</Organization>
+            <Notes>Ransomware operations and cybercrime</Notes>
+        </Contact>
+        <Contact>
+            <ID>10</ID>
+            <Name>Judge "Hammer" Thompson</Name>
+            <PhoneNumbers>
+                <PhoneNumber>+1-555-0166</PhoneNumber>
+            </PhoneNumbers>
+            <Emails>
+                <Email>jthompson@justice-dept.gov</Email>
+            </Emails>
+            <Organization>Metropolitan Court System</Organization>
+            <Notes>Corrupt judge - takes bribes for case dismissals</Notes>
+        </Contact>
+    </Contacts>
+
+    <MediaFiles>
+        <MediaFile>
+            <FileName>evidence_photo_001.jpg</FileName>
+            <FilePath>/storage/emulated/0/DCIM/Camera/evidence_photo_001.jpg</FilePath>
+            <FileSize>2547832</FileSize>
+            <CreationDate>2025-10-02T15:30:45Z</CreationDate>
+            <FileType>image/jpeg</FileType>
+            <GPS>40.7128, -74.0060</GPS>
+            <Analysis>Surveillance photo showing drug handoff in warehouse. Visible: 50kg cocaine packages, two unidentified males exchanging briefcase.</Analysis>
+        </MediaFile>
+        <MediaFile>
+            <FileName>bitcoin_wallet_screenshot.png</FileName>
+            <FilePath>/storage/emulated/0/Pictures/Screenshots/bitcoin_wallet_screenshot.png</FilePath>
+            <FileSize>891456</FileSize>
+            <CreationDate>2025-10-03T11:20:12Z</CreationDate>
+            <FileType>image/png</FileType>
+            <Analysis>Screenshot of Bitcoin wallet showing balance of 347.8 BTC (~$15.2M USD). Multiple recent transactions visible.</Analysis>
+        </MediaFile>
+        <MediaFile>
+            <FileName>weapons_inventory.mp4</FileName>
+            <FilePath>/storage/emulated/0/Movies/weapons_inventory.mp4</FilePath>
+            <FileSize>45621789</FileSize>
+            <CreationDate>2025-10-04T09:15:33Z</CreationDate>
+            <FileType>video/mp4</FileType>
+            <GPS>33.7490, -84.3880</GPS>
+            <Analysis>Video showing weapons cache: 47 assault rifles, 12 handguns, explosive materials. Audio mentions shipment to Mexican cartel.</Analysis>
+        </MediaFile>
+        <MediaFile>
+            <FileName>offshore_account_details.pdf</FileName>
+            <FilePath>/storage/emulated/0/Documents/offshore_account_details.pdf</FilePath>
+            <FileSize>156742</FileSize>
+            <CreationDate>2025-10-05T14:45:18Z</CreationDate>
+            <FileType>application/pdf</FileType>
+            <Analysis>Bank statements from Cayman Islands showing $8.7M in suspicious transactions. Shell company "Tech Innovations LLC" listed as source.</Analysis>
+        </MediaFile>
+        <MediaFile>
+            <FileName>drug_lab_recording.wav</FileName>
+            <FilePath>/storage/emulated/0/Recordings/drug_lab_recording.wav</FilePath>
+            <FileSize>23847562</FileSize>
+            <CreationDate>2025-10-06T08:30:22Z</CreationDate>
+            <FileType>audio/wav</FileType>
+            <Analysis>Audio recording from inside fentanyl production facility. Discussion of production capacity, distribution routes, and quality control measures.</Analysis>
+        </MediaFile>
+        <MediaFile>
+            <FileName>human_trafficking_victims.xlsx</FileName>
+            <FilePath>/storage/emulated/0/Documents/human_trafficking_victims.xlsx</FilePath>
+            <FileSize>78934</FileSize>
+            <CreationDate>2025-10-06T12:15:44Z</CreationDate>
+            <FileType>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</FileType>
+            <Analysis>Spreadsheet containing personal details of 127 trafficking victims: names, ages, origin countries, assigned locations, and "purchase prices".</Analysis>
+        </MediaFile>
+    </MediaFiles>
+
+</UFDR_Report>

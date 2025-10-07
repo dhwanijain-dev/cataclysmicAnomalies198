@@ -8,6 +8,7 @@ import { Sheet, SheetContent } from "@/components/ui/sheet"
 import { Search, FileText, BarChart3, Upload, Settings, Shield, Menu, Database, Brain } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
+import Link from "next/link"
 const navigation = [
   { name: "Dashboard", href: "/", icon: BarChart3, current: false },
   { name: "Upload UFDR", href: "/upload", icon: Upload, current: false },
@@ -79,7 +80,7 @@ function Sidebar() {
             <ul role="list" className="-mx-2 space-y-1">
               {navigation.map((item) => (
                 <li key={item.name}>
-                  <a
+                  <Link
                     href={item.href}
                     className={cn(
                       item.current
@@ -90,7 +91,7 @@ function Sidebar() {
                   >
                     <item.icon className="h-5 w-5 shrink-0" />
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UFDR_Report>
+    <Metadata>
+        <CaseNumber>CYB-2025-01337</CaseNumber>
+        <InvestigatingOfficer>Det. K. Sharma</InvestigatingOfficer>
+        <ExtractionTool>Cellebrite UFED v7.5</ExtractionTool>
+        <ExtractionDate>2025-10-02T14:30:00Z</ExtractionDate>
+        <DeviceInformation>
+            <Owner>John Doe (Suspect)</Owner>
+            <Model>iPhone 14 Pro</Model>
+            <OS>iOS 18.1</OS>
+            <IMEI>356728345912345</IMEI>
+            <PhoneNumber>+919876543210</PhoneNumber>
+        </DeviceInformation>
+    </Metadata>
+
+    <Contacts>
+        <Contact>
+            <ID>1</ID>
+            <Name>Alex "Shadow" Smith</Name>
+            <PhoneNumber>+44 7700 900123</PhoneNumber>
+            <Email>shadow.smith@proton.me</Email>
+        </Contact>
+        <Contact>
+            <ID>2</ID>
+            <Name>Jane Roe</Name>
+            <PhoneNumber>+919123456789</PhoneNumber>
+            <Email>jane.roe@gmail.com</Email>
+        </Contact>
+        <Contact>
+            <ID>3</ID>
+            <Name>Pizza Palace</Name>
+            <PhoneNumber>+911145678900</PhoneNumber>
+            <Email/>
+        </Contact>
+    </Contacts>
+
+    <CallLogs>
+        <Call>
+            <Timestamp>2025-09-28T19:05:12Z</Timestamp>
+            <Direction>Outgoing</Direction>
+            <ContactName>Alex "Shadow" Smith</ContactName>
+            <Number>+44 7700 900123</Number>
+            <DurationSeconds>312</DurationSeconds>
+        </Call>
+        <Call>
+            <Timestamp>2025-09-29T10:15:45Z</Timestamp>
+            <Direction>Incoming</Direction>
+            <ContactName>Jane Roe</ContactName>
+            <Number>+919123456789</Number>
+            <DurationSeconds>98</DurationSeconds>
+        </Call>
+        <Call>
+            <Timestamp>2025-09-30T22:30:01Z</Timestamp>
+            <Direction>Incoming</Direction>
+            <ContactName>Alex "Shadow" Smith</ContactName>
+            <Number>+44 7700 900123</Number>
+            <DurationSeconds>540</DurationSeconds>
+            <Status>Answered</Status>
+        </Call>
+    </CallLogs>
+
+    <Chats>
+        <Conversation App="WhatsApp" ParticipantName="Alex &quot;Shadow&quot; Smith" ParticipantID="+447700900123">
+            <Message>
+                <Timestamp>2025-09-30T22:45:10Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>The package is ready. Need the payment to proceed.</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-09-30T22:46:02Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Good. Use the usual wallet. Or this new one for ETH: 0x1B9c255D5084f7b32A2A8bA52C3121d51A9a87dF</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-09-30T22:48:30Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>Okay, sending it now. For confirmation, my BTC address is bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh. Send a small amount there first.</Content>
+            </Message>
+        </Conversation>
+        <Conversation App="Signal" ParticipantName="Jane Roe" ParticipantID="+919123456789">
+            <Message>
+                <Timestamp>2025-10-01T11:00:05Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Hey, are we still on for lunch tomorrow?</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-01T11:02:15Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>Absolutely! See you at 1 PM.</Content>
+            </Message>
+        </Conversation>
+    </Chats>
+
+    <BrowserHistory>
+        <Visit>
+            <Timestamp>2025-09-27T15:20:11Z</Timestamp>
+            <URL>https://www.coinbase.com/login</URL>
+            <Title>Coinbase - Log In</Title>
+        </Visit>
+        <Visit>
+            <Timestamp>2025-09-28T19:40:00Z</Timestamp>
+            <URL>https://www.google.com/search?q=how+to+hide+transactions+on+blockchain</URL>
+            <Title>how to hide transactions on blockchain - Google Search</Title>
+        </Visit>
+    </BrowserHistory>
+
+    <Images>
+        <Image>
+            <FileName>IMG_3451.JPG</FileName>
+            <FilePath>/private/var/mobile/Media/DCIM/100APPLE/IMG_3451.JPG</FilePath>
+            <Timestamp>2025-09-25T18:01:34Z</Timestamp>
+            <GPS>22.7196, 75.8577</GPS>
+            <Description>AI Analysis: Image of a handwritten note on a desk.</Description>
+        </Image>
+        <Image>
+            <FileName>IMG_3452.PNG</FileName>
+            <FilePath>/private/var/mobile/Media/DCIM/100APPLE/IMG_3452.PNG</FilePath>
+            <Timestamp>2025-09-30T22:55:00Z</Timestamp>
+            <GPS/>
+            <Description>AI Analysis: Screenshot of a cryptocurrency wallet application showing a balance of 3.5 BTC.</Description>
+        </Image>
+    </Images>
+    
+    <Notes>
+        <Note>
+            <Title>Backup Info</Title>
+            <CreatedDate>2025-09-26T12:00:00Z</CreatedDate>
+            <Content>
+            Wallet Seed Phrase: tired gentle myth piano penalty mandate angry legal fiscal luxury rival absorb
+            Hardware Wallet Key (Private): L5Kz4vna3aK8gY3eYyB1ZzXvY...[REDACTED FOR BREVITY]...d9H7gP4jWq2s
+            </Content>
+        </Note>
+    </Notes>
+
+</UFDR_Report>

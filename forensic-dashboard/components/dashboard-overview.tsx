@@ -1,6 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { FileText, MessageSquare, Phone, ImageIcon, AlertTriangle, TrendingUp, Database } from "lucide-react"
+import { useState, useEffect } from "react"
+import { apiClient } from "@/lib/api-client"
+import { useToast } from "@/hooks/use-toast"
 
 const stats = [
   {
@@ -55,6 +58,101 @@ const alerts = [
 ]
 
 export function DashboardOverview() {
+  const [stats, setStats] = useState([
+    {
+      title: "Total Reports",
+      value: "0",
+      change: "Loading...",
+      icon: FileText,
+      color: "text-blue-600",
+    },
+    {
+      title: "Messages Analyzed",
+      value: "0",
+      change: "Loading...",
+      icon: MessageSquare,
+      color: "text-green-600",
+    },
+    {
+      title: "Call Records",
+      value: "0",
+      change: "Loading...",
+      icon: Phone,
+      color: "text-purple-600",
+    },
+    {
+      title: "Media Files",
+      value: "0",
+      change: "Loading...",
+      icon: ImageIcon,
+      color: "text-orange-600",
+    },
+  ]);
+  
+  const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        // Fetch cases to get report count
+        const casesResponse = await apiClient.getCases();
+        
+        // Fetch analytics for overview
+        const analyticsResponse = await apiClient.getAnalytics();
+        
+        if (casesResponse.success && analyticsResponse.success) {
+          const cases = casesResponse.data || [];
+          const analytics = analyticsResponse.data;
+          
+          setStats([
+            {
+              title: "Total Cases",
+              value: (Array.isArray(cases) ? cases.length : cases.cases.length).toString(),
+              change: `${(Array.isArray(cases) ? cases : cases.cases).filter(
+                (c: any) => new Date(c.createdAt) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+              ).length
+                } this week`,
+              icon: FileText,
+              color: "text-blue-600",
+            },
+
+            {
+              title: "Messages Analyzed",
+              value: analytics?.overview?.totalChats?.toLocaleString() || "0",
+              change: "Total across all cases",
+              icon: MessageSquare,
+              color: "text-green-600",
+            },
+            {
+              title: "Call Records",
+              value: analytics?.overview?.totalCalls?.toLocaleString() || "0",
+              change: "Total across all cases",
+              icon: Phone,
+              color: "text-purple-600",
+            },
+            {
+              title: "Contacts Found",
+              value: analytics?.overview?.totalContacts?.toLocaleString() || "0",
+              change: "Total across all cases",
+              icon: ImageIcon,
+              color: "text-orange-600",
+            },
+          ]);
+        }
+      } catch (error) {
+        toast({
+          title: "Failed to load dashboard data",
+          description: "Some statistics may not be available.",
+          variant: "destructive",
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDashboardData();
+  }, [toast]);
   return (
     <div className="space-y-6">
       {/* Stats Grid */}

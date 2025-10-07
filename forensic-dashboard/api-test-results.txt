@@ -1,0 +1,511 @@
+==========================================
+Forensic Dashboard API Route Testing
+Using UFDR files from: ./public/ufdrFIles
+Testing server at: http://localhost:3002
+==========================================
+
+🔍 Checking if server is running...
+✅ Server is running at http://localhost:3002
+
+📁 Available UFDR files:
+total 56
+drwxrwxr-x 2 dhwani1606 dhwani1606  4096 Oct  4 22:57 .
+drwxrwxr-x 3 dhwani1606 dhwani1606  4096 Oct  4 22:57 ..
+-rw-rw-r-- 1 dhwani1606 dhwani1606  6994 Oct  4 22:57 sample_case_001.json
+-rw-rw-r-- 1 dhwani1606 dhwani1606 12059 Oct  4 22:57 sample_case_001.xml
+-rw-rw-r-- 1 dhwani1606 dhwani1606  4033 Oct  4 22:57 testUdfr4.ufdr
+-rw-rw-r-- 1 dhwani1606 dhwani1606  5377 Oct  4 22:57 testUfdr1.xml
+-rw-rw-r-- 1 dhwani1606 dhwani1606  5000 Oct  4 22:57 testUfdr2.xml
+-rw-rw-r-- 1 dhwani1606 dhwani1606  5475 Oct  4 22:57 testUfdr3.pdf
+
+==========================================
+1. UPLOAD API TESTING
+==========================================
+
+📤 Testing file upload with sample_case_001.json...
+Note: Unnecessary use of -X or --request, POST is already inferred.
+* Host localhost:3002 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3002...
+* Connected to localhost (::1) port 3002
+* using HTTP/1.x
+> POST /api/upload HTTP/1.1
+> Host: localhost:3002
+> User-Agent: curl/8.12.1
+> Accept: */*
+> Content-Length: 7218
+> Content-Type: multipart/form-data; boundary=------------------------pJB6xwVJng6Nl35y6ARFuG
+> 
+} [7218 bytes data]
+* upload completely sent off: 7218 bytes
+< HTTP/1.1 404 Not Found
+< vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch
+
+📤 Testing file upload with sample_case_001.xml...
+Note: Unnecessary use of -X or --request, POST is already inferred.
+* Host localhost:3002 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3002...
+* Connected to localhost (::1) port 3002
+* using HTTP/1.x
+> POST /api/upload HTTP/1.1
+> Host: localhost:3002
+> User-Agent: curl/8.12.1
+> Accept: */*
+> Content-Length: 12273
+> Content-Type: multipart/form-data; boundary=------------------------3eQ861YXDO0QfExyNcj6il
+> 
+} [12273 bytes data]
+* upload completely sent off: 12273 bytes
+< HTTP/1.1 404 Not Found
+< vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch
+
+📤 Testing file upload with testUdfr4.ufdr...
+Note: Unnecessary use of -X or --request, POST is already inferred.
+* Host localhost:3002 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3002...
+* Connected to localhost (::1) port 3002
+* using HTTP/1.x
+> POST /api/upload HTTP/1.1
+> Host: localhost:3002
+> User-Agent: curl/8.12.1
+> Accept: */*
+> Content-Length: 4251
+> Content-Type: multipart/form-data; boundary=------------------------P11wFcnlZTI8tN0o3XWeZI
+> 
+} [4251 bytes data]
+* upload completely sent off: 4251 bytes
+< HTTP/1.1 500 Internal Server Error
+< vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch
+
+📤 Testing file upload with testUfdr1.xml...
+Note: Unnecessary use of -X or --request, POST is already inferred.
+* Host localhost:3002 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3002...
+* Connected to localhost (::1) port 3002
+* using HTTP/1.x
+> POST /api/upload HTTP/1.1
+> Host: localhost:3002
+> User-Agent: curl/8.12.1
+> Accept: */*
+> Content-Length: 5585
+> Content-Type: multipart/form-data; boundary=------------------------EoSirmMV8pIkjQKWnSFRpJ
+> 
+} [5585 bytes data]
+* upload completely sent off: 5585 bytes
+< HTTP/1.1 404 Not Found
+< vary: RSC, Next-Router-State-Tree, Next-Router-Prefetch
+
+==========================================
+2. CASES API TESTING
+==========================================
+
+📋 GET /api/cases - Fetch all cases
+{
+  "success": true,
+  "data": {
+    "cases": [
+      {
+        "id": "cmgcjbhy70001hxq7kumym85j",
+        "caseNumber": "CASE-MGCJBHY6-C2XDF",
+        "caseName": "API Test Case",
+        "description": "Testing with proper case ID",
+        "createdAt": "2025-10-04T17:16:10.783Z",
+        "updatedAt": "2025-10-04T17:16:10.783Z",
+        "_count": {
+          "devices": 0,
+          "queries": 1,
+          "reports": 0
+        }
+      },
+      {
+        "id": "cmgcj664c0002hxls52s12tbh",
+        "caseNumber": "CASE-2024-003",
+        "caseName": "OnePlus 9 - Cybercrime Investigation",
+        "description": "Cybercrime investigation involving data theft and unauthorized access",
+        "createdAt": "2025-10-04T17:12:02.172Z",
+        "updatedAt": "2025-10-04T17:12:02.172Z",
+        "_count": {
+          "devices": 1,
+          "queries": 1,
+          "reports": 1
+        }
+      },
+      {
+        "id": "cmgcj65y00001hxls5v34444m",
+        "caseNumber": "CASE-2024-002",
+        "caseName": "iPhone 14 Pro - Financial Fraud",
+        "description": "Analysis of financial fraud and money laundering activities",
+        "createdAt": "2025-10-04T17:12:01.945Z",
+        "updatedAt": "2025-10-04T17:12:01.945Z",
+        "_count": {
+          "devices": 1,
+          "queries": 1,
+          "reports": 1
+        }
+      },
+      {
+        "id": "cmgcj65lp0000hxls4jnphep5",
+        "caseNumber": "CASE-2024-001",
+        "caseName": "Samsung Galaxy S21 - Drug Investigation",
+        "description": "Investigation involving suspected drug trafficking activities",
+        "createdAt": "2025-10-04T17:12:01.501Z",
+        "updatedAt": "2025-10-04T17:12:01.501Z",
+        "_count": {
+          "devices": 1,
+          "queries": 1,
+          "reports": 1
+        }
+      },
+      {
+        "id": "cmgcizxob0000hxq7fbdrraeh",
+        "caseNumber": "CASE-MGCIZXOA-1M4K9",
+        "caseName": "Test Case API",
+        "description": "Testing API endpoint",
+        "createdAt": "2025-10-04T17:07:11.291Z",
+        "updatedAt": "2025-10-04T17:07:11.291Z",
+        "_count": {
+          "devices": 0,
+          "queries": 0,
+          "reports": 0
+        }
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "limit": 10,
+      "totalCount": 5,
+      "totalPages": 1,
+      "hasNext": false,
+      "hasPrev": false
+    }
+  },
+  "timestamp": "2025-10-04T17:35:23.670Z"
+}
+
+📋 POST /api/cases - Create new case
+{
+  "success": false,
+  "error": "Case name is required",
+  "timestamp": "2025-10-04T17:35:23.729Z"
+}
+
+📋 GET /api/cases/1 - Fetch specific case
+{
+  "success": false,
+  "error": "Case not found",
+  "timestamp": "2025-10-04T17:35:25.012Z"
+}
+
+==========================================
+3. REPORTS API TESTING
+==========================================
+
+📊 GET /api/reports - Fetch all reports
+{
+  "success": true,
+  "data": {
+    "reports": [
+      {
+        "id": "cmgcj66u10008hxlsqrk8nph3",
+        "title": "OnePlus 9 - Cybercrime Court Submission",
+        "reportType": "Court Submission Report",
+        "caseNumber": "CASE-2024-003",
+        "caseName": "OnePlus 9 - Cybercrime Investigation",
+        "dateGenerated": "2025-10-04",
+        "officer": "Det. Williams",
+        "status": "submitted",
+        "findings": 456,
+        "pages": 78,
+        "sections": [
+          "Case Overview",
+          "Methodology",
+          "Chain of Custody",
+          "Technical Analysis",
+          "Evidence Summary",
+          "Expert Opinion",
+          "Certifications"
+        ],
+        "summary": "Court-ready analysis of cybercrime activities including data theft and system intrusion evidence.",
+        "keyFindings": [
+          "Evidence of unauthorized network access",
+          "Stolen personal data of 1,200+ individuals",
+          "Hacking tools and malware present on device",
+          "Communication logs with cybercriminal networks"
+        ],
+        "caseId": "cmgcj664c0002hxls52s12tbh"
+      },
+      {
+        "id": "cmgcj66no0006hxlss68oh413",
+        "title": "iPhone 14 Pro - Financial Fraud Case Summary",
+        "reportType": "Executive Summary",
+        "caseNumber": "CASE-2024-002",
+        "caseName": "iPhone 14 Pro - Financial Fraud",
+        "dateGenerated": "2025-10-04",
+        "officer": "Det. Smith",
+        "status": "draft",
+        "findings": 1203,
+        "pages": 12,
+        "sections": [
+          "Key Findings",
+          "Risk Assessment",
+          "Recommendations",
+          "Next Steps"
+        ],
+        "summary": "Evidence indicates sophisticated financial fraud scheme involving multiple accounts and cryptocurrency transactions.",
+        "keyFindings": [
+          "Unauthorized access to banking applications",
+          "Cryptocurrency wallet transactions exceeding $50,000",
+          "Fake identity documents stored on device",
+          "Communication with known fraud networks"
+        ],
+        "caseId": "cmgcj65y00001hxls5v34444m"
+      },
+      {
+        "id": "cmgcj66b00004hxlspvyf52nv",
+        "title": "Samsung Galaxy S21 - Drug Investigation Analysis",
+        "reportType": "Standard Forensic Report",
+        "caseNumber": "CASE-2024-001",
+        "caseName": "Samsung Galaxy S21 - Drug Investigation",
+        "dateGenerated": "2025-10-04",
+        "officer": "Det. Johnson",
+        "status": "final",
+        "findings": 847,
+        "pages": 45,
+        "sections": [
+          "Executive Summary",
+          "Device Information",
+          "Data Analysis",
+          "Findings",
+          "Conclusions",
+          "Appendices"
+        ],
+        "summary": "Comprehensive analysis revealed significant evidence of drug-related communications and financial transactions.",
+        "keyFindings": [
+          "Multiple encrypted messaging apps with suspicious conversations",
+          "Financial transactions consistent with drug sales",
+          "Location data correlating with known drug activity areas",
+          "Deleted messages recovered containing incriminating evidence"
+        ],
+        "caseId": "cmgcj65lp0000hxls4jnphep5"
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "limit": 10,
+      "totalCount": 3,
+      "totalPages": 1,
+      "hasNext": false,
+      "hasPrev": false
+    }
+  },
+  "timestamp": "2025-10-04T17:35:26.366Z"
+}
+
+📊 POST /api/reports - Create new report
+{
+  "success": false,
+  "error": "Report name, type, and case ID are required",
+  "timestamp": "2025-10-04T17:35:26.459Z"
+}
+
+==========================================
+4. SEARCH API TESTING
+==========================================
+
+🔍 POST /api/search - Search with query
+{
+  "error": "Query and caseId are required"
+}
+
+🔍 POST /api/search - Search for specific case
+{
+  "error": "Query and caseId are required"
+}
+
+==========================================
+5. QUERY API TESTING
+==========================================
+
+❓ POST /api/query - Natural language query
+{
+  "success": false,
+  "error": "Query and caseId are required",
+  "timestamp": "2025-10-04T17:35:26.844Z"
+}
+
+❓ POST /api/query - Case analysis query
+{
+  "success": false,
+  "error": "Failed to process query",
+  "code": "\nInvalid `prisma.query.create()` invocation:\n\n{\n  data: {\n    queryText: \"Analyze the timeline of events in case 1\",\n    queryType: \"natural_language\",\n    results: {},\n    resultCount: 0,\n    executionTime: 890,\n    caseId: 1\n            ~\n  }\n}\n\nArgument `caseId`: Invalid value provided. Expected String, provided Int.",
+  "timestamp": "2025-10-04T17:35:28.046Z"
+}
+
+==========================================
+6. ANALYTICS API TESTING
+==========================================
+
+📈 GET /api/analytics - Get analytics data
+{
+  "success": true,
+  "data": {
+    "stats": {
+      "totalCases": 5,
+      "totalDevices": 3,
+      "totalQueries": 4,
+      "totalReports": 3
+    },
+    "communications": {
+      "totalChats": 3,
+      "totalCalls": 3,
+      "deletedMessages": 1,
+      "uniqueContacts": 4,
+      "foreignNumbers": 3
+    },
+    "timeline": [],
+    "topContacts": [
+      {
+        "phoneNumber": "+1-555-0200",
+        "count": 1,
+        "type": "chat"
+      },
+      {
+        "phoneNumber": "+1-555-0201",
+        "count": 1,
+        "type": "chat"
+      },
+      {
+        "phoneNumber": "+1-555-0202",
+        "count": 1,
+        "type": "chat"
+      }
+    ],
+    "suspiciousActivity": [
+      {
+        "id": "cmgcj68dx000khxlsup3l8yp9",
+        "type": "deleted_message",
+        "description": "Deleted message from +1-555-0202",
+        "timestamp": "2024-01-12T09:15:00.000Z",
+        "deviceName": "OnePlus 9",
+        "severity": "medium"
+      }
+    ],
+    "timeframe": "30d"
+  },
+  "timestamp": "2025-10-04T17:35:37.792Z"
+}
+
+📈 POST /api/analytics - Analytics with filters
+{
+  "error": "Case ID is required"
+}
+
+==========================================
+7. ENTITIES API TESTING
+==========================================
+
+🏷️  GET /api/entities - Get all entities
+{
+  "success": false,
+  "error": "Case ID is required",
+  "timestamp": "2025-10-04T17:35:38.214Z"
+}
+
+🏷️  POST /api/entities - Extract entities from text
+
+==========================================
+8. EXPORT API TESTING
+==========================================
+
+📤 POST /api/export - Export case data
+{
+  "error": "Failed to export data"
+}
+
+📤 POST /api/export - Export in PDF format
+{"error":"Failed to export data"}
+==========================================
+9. REPORTS GENERATION API TESTING
+==========================================
+
+📋 POST /api/reports/generate - Generate forensic report
+{
+  "success": false,
+  "error": "Failed to generate report",
+  "code": "\nInvalid `prisma.case.findUnique()` invocation:\n\n{\n  where: {\n    id: 1\n        ~\n  },\n  include: {\n    devices: true\n  }\n}\n\nArgument `id`: Invalid value provided. Expected String, provided Int.",
+  "timestamp": "2025-10-04T17:35:38.922Z"
+}
+
+==========================================
+10. COMPREHENSIVE FILE UPLOAD TESTING
+==========================================
+
+📁 Testing all available UFDR files...
+
+📤 Uploading: sample_case_001.json
+✅ Upload successful for sample_case_001.json
+{
+  "error": "Case not found"
+}
+----------------------------------------
+
+📤 Uploading: sample_case_001.xml
+✅ Upload successful for sample_case_001.xml
+{
+  "error": "Case not found"
+}
+----------------------------------------
+
+📤 Uploading: testUdfr4.ufdr
+✅ Upload successful for testUdfr4.ufdr
+{
+  "error": "Failed to process file",
+  "details": "Non-whitespace before first tag.\nLine: 0\nColumn: 1\nChar: {"
+}
+----------------------------------------
+
+📤 Uploading: testUfdr1.xml
+✅ Upload successful for testUfdr1.xml
+{
+  "error": "Case not found"
+}
+----------------------------------------
+
+📤 Uploading: testUfdr2.xml
+✅ Upload successful for testUfdr2.xml
+{
+  "error": "Case not found"
+}
+----------------------------------------
+
+📤 Uploading: testUfdr3.pdf
+✅ Upload successful for testUfdr3.pdf
+{
+  "error": "Failed to process file",
+  "details": "Unsupported file format"
+}
+----------------------------------------
+
+==========================================
+API TESTING COMPLETE
+==========================================
+✅ All routes tested with UFDR files from public/ufdrFIles
+📁 Files tested: 6 UFDR files
+🌐 Server: http://localhost:3002
+📋 Check the output above for any errors or issues
+==========================================

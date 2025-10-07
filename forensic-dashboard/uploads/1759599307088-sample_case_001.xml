@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UFDR_Report>
+    <Metadata>
+        <CaseNumber>CYB-2025-SAMPLE-001</CaseNumber>
+        <InvestigatingOfficer>Detective A. Kumar</InvestigatingOfficer>
+        <ExtractionTool>Cellebrite UFED v8.0</ExtractionTool>
+        <ExtractionDate>2025-10-04T10:30:00Z</ExtractionDate>
+        <DeviceInformation>
+            <Owner>Arjun Patel (Suspect)</Owner>
+            <Model>Samsung Galaxy S24 Ultra</Model>
+            <OS>Android 14</OS>
+            <IMEI>351234567890123</IMEI>
+            <PhoneNumber>+919876543210</PhoneNumber>
+            <Manufacturer>Samsung</Manufacturer>
+        </DeviceInformation>
+    </Metadata>
+
+    <Contacts>
+        <Contact>
+            <ID>1</ID>
+            <Name>Vikram Singh</Name>
+            <PhoneNumber>+919123456789</PhoneNumber>
+            <Email>vikram.singh@protonmail.com</Email>
+            <Organization>TechCorp Ltd</Organization>
+        </Contact>
+        <Contact>
+            <ID>2</ID>
+            <Name>Maya Sharma</Name>
+            <PhoneNumber>+919876543211</PhoneNumber>
+            <Email>maya.sharma@gmail.com</Email>
+            <Organization></Organization>
+        </Contact>
+        <Contact>
+            <ID>3</ID>
+            <Name>Raj Mehta</Name>
+            <PhoneNumber>+447700900456</PhoneNumber>
+            <Email>raj.mehta@outlook.com</Email>
+            <Organization>Global Finance</Organization>
+        </Contact>
+        <Contact>
+            <ID>4</ID>
+            <Name>Customer Support</Name>
+            <PhoneNumber>+911800123456</PhoneNumber>
+            <Email>support@cryptoexchange.com</Email>
+            <Organization>CryptoExchange</Organization>
+        </Contact>
+    </Contacts>
+
+    <CallLogs>
+        <Call>
+            <Timestamp>2025-10-03T14:25:10Z</Timestamp>
+            <Direction>Outgoing</Direction>
+            <ContactName>Vikram Singh</ContactName>
+            <Number>+919123456789</Number>
+            <DurationSeconds>180</DurationSeconds>
+            <Status>Answered</Status>
+        </Call>
+        <Call>
+            <Timestamp>2025-10-03T16:45:30Z</Timestamp>
+            <Direction>Incoming</Direction>
+            <ContactName>Maya Sharma</ContactName>
+            <Number>+919876543211</Number>
+            <DurationSeconds>95</DurationSeconds>
+            <Status>Answered</Status>
+        </Call>
+        <Call>
+            <Timestamp>2025-10-03T19:15:45Z</Timestamp>
+            <Direction>Outgoing</Direction>
+            <ContactName>Raj Mehta</ContactName>
+            <Number>+447700900456</Number>
+            <DurationSeconds>420</DurationSeconds>
+            <Status>Answered</Status>
+        </Call>
+        <Call>
+            <Timestamp>2025-10-04T08:30:12Z</Timestamp>
+            <Direction>Incoming</Direction>
+            <ContactName>Unknown</ContactName>
+            <Number>+919999888777</Number>
+            <DurationSeconds>0</DurationSeconds>
+            <Status>Missed</Status>
+        </Call>
+    </CallLogs>
+
+    <Chats>
+        <Conversation App="WhatsApp" ParticipantName="Vikram Singh" ParticipantID="+919123456789">
+            <Message>
+                <Timestamp>2025-10-03T14:30:00Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>The transaction went through successfully. Check your wallet.</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T14:31:15Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Perfect! The ETH address is 0xA1B2C3D4E5F6789012345678901234567890ABCD. Send the remaining amount there.</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T14:32:30Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>Will do. My BTC wallet for the return payment: bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T14:35:00Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Confirmed. Transaction ID: 0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890</Content>
+            </Message>
+        </Conversation>
+        
+        <Conversation App="Telegram" ParticipantName="Maya Sharma" ParticipantID="+919876543211">
+            <Message>
+                <Timestamp>2025-10-03T17:00:00Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Did you transfer the funds to the offshore account?</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T17:01:30Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>Yes, account number CH93-0076-2011-6238-5295-7 at Swiss Bank.</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T17:03:00Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Excellent. The documents are ready for pickup at the usual location.</Content>
+            </Message>
+        </Conversation>
+
+        <Conversation App="Signal" ParticipantName="Raj Mehta" ParticipantID="+447700900456">
+            <Message>
+                <Timestamp>2025-10-03T19:30:00Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Meeting confirmed for tomorrow. IP address for the secure server: 192.168.45.100</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T19:31:00Z</Timestamp>
+                <Direction>Outgoing</Direction>
+                <Content>Got it. Access code is still the same?</Content>
+            </Message>
+            <Message>
+                <Timestamp>2025-10-03T19:32:00Z</Timestamp>
+                <Direction>Incoming</Direction>
+                <Content>Changed to: admin@secure123. Also, backup server at 10.0.0.251 if needed.</Content>
+            </Message>
+        </Conversation>
+    </Chats>
+
+    <BrowserHistory>
+        <Visit>
+            <Timestamp>2025-10-03T12:30:00Z</Timestamp>
+            <URL>https://www.binance.com/en/trade/BTC_USDT</URL>
+            <Title>Bitcoin/USDT Trading - Binance</Title>
+        </Visit>
+        <Visit>
+            <Timestamp>2025-10-03T12:45:00Z</Timestamp>
+            <URL>https://etherscan.io/address/0xA1B2C3D4E5F6789012345678901234567890ABCD</URL>
+            <Title>Ethereum Address - Etherscan</Title>
+        </Visit>
+        <Visit>
+            <Timestamp>2025-10-03T13:15:00Z</Timestamp>
+            <URL>https://www.google.com/search?q=how+to+anonymize+cryptocurrency+transactions</URL>
+            <Title>how to anonymize cryptocurrency transactions - Google Search</Title>
+        </Visit>
+        <Visit>
+            <Timestamp>2025-10-03T14:00:00Z</Timestamp>
+            <URL>https://www.swissbank.ch/login</URL>
+            <Title>Swiss Bank - Online Banking Login</Title>
+        </Visit>
+        <Visit>
+            <Timestamp>2025-10-03T18:30:00Z</Timestamp>
+            <URL>https://protonmail.com/</URL>
+            <Title>ProtonMail - Secure Email</Title>
+        </Visit>
+    </BrowserHistory>
+
+    <Images>
+        <Image>
+            <FileName>wallet_screenshot.png</FileName>
+            <FilePath>/storage/emulated/0/DCIM/Screenshots/wallet_screenshot.png</FilePath>
+            <Timestamp>2025-10-03T14:28:00Z</Timestamp>
+            <GPS>28.6139, 77.2090</GPS>
+            <Description>AI Analysis: Screenshot showing cryptocurrency wallet with balance of 15.7 BTC and multiple transaction history.</Description>
+        </Image>
+        <Image>
+            <FileName>document_photo.jpg</FileName>
+            <FilePath>/storage/emulated/0/DCIM/Camera/document_photo.jpg</FilePath>
+            <Timestamp>2025-10-03T16:30:00Z</Timestamp>
+            <GPS>28.5355, 77.3910</GPS>
+            <Description>AI Analysis: Photo of financial documents with handwritten notes containing account numbers and passwords.</Description>
+        </Image>
+        <Image>
+            <FileName>meeting_location.jpg</FileName>
+            <FilePath>/storage/emulated/0/DCIM/Camera/meeting_location.jpg</FilePath>
+            <Timestamp>2025-10-03T19:45:00Z</Timestamp>
+            <GPS>28.7041, 77.1025</GPS>
+            <Description>AI Analysis: Photo of a building exterior, appears to be an office complex.</Description>
+        </Image>
+    </Images>
+
+    <Applications>
+        <App>
+            <Name>CryptoWallet Pro</Name>
+            <PackageName>com.cryptowallet.pro</PackageName>
+            <Version>2.1.4</Version>
+            <InstallDate>2025-09-15T10:00:00Z</InstallDate>
+        </App>
+        <App>
+            <Name>ProtonMail</Name>
+            <PackageName>ch.protonmail.android</PackageName>
+            <Version>3.0.17</Version>
+            <InstallDate>2025-08-20T14:30:00Z</InstallDate>
+        </App>
+        <App>
+            <Name>Tor Browser</Name>
+            <PackageName>org.torproject.torbrowser</PackageName>
+            <Version>12.0.1</Version>
+            <InstallDate>2025-09-01T09:15:00Z</InstallDate>
+        </App>
+    </Applications>
+
+    <LocationData>
+        <Location>
+            <Timestamp>2025-10-03T14:00:00Z</Timestamp>
+            <Latitude>28.6139</Latitude>
+            <Longitude>77.2090</Longitude>
+            <Accuracy>5.0</Accuracy>
+            <Source>GPS</Source>
+            <Address>Connaught Place, New Delhi, India</Address>
+        </Location>
+        <Location>
+            <Timestamp>2025-10-03T16:30:00Z</Timestamp>
+            <Latitude>28.5355</Latitude>
+            <Longitude>77.3910</Longitude>
+            <Accuracy>3.2</Accuracy>
+            <Source>GPS</Source>
+            <Address>Noida Sector 62, Uttar Pradesh, India</Address>
+        </Location>
+        <Location>
+            <Timestamp>2025-10-03T19:45:00Z</Timestamp>
+            <Latitude>28.7041</Latitude>
+            <Longitude>77.1025</Longitude>
+            <Accuracy>4.1</Accuracy>
+            <Source>GPS</Source>
+            <Address>Gurgaon Cyber City, Haryana, India</Address>
+        </Location>
+    </LocationData>
+
+    <Notes>
+        <Note>
+            <Title>Crypto Wallet Info</Title>
+            <CreatedDate>2025-10-01T10:00:00Z</CreatedDate>
+            <Content>
+            Primary BTC Wallet: bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4
+            ETH Wallet: 0xA1B2C3D4E5F6789012345678901234567890ABCD
+            Backup Seed: abandon ability able about above absent absorb abstract
+            Hardware Key: xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi
+            </Content>
+        </Note>
+        <Note>
+            <Title>Bank Account Details</Title>
+            <CreatedDate>2025-10-02T15:30:00Z</CreatedDate>
+            <Content>
+            Swiss Bank Account: CH93-0076-2011-6238-5295-7
+            Login: arjun.patel@protonmail.com
+            PIN: 8847
+            Backup Contact: maya.sharma@gmail.com
+            </Content>
+        </Note>
+    </Notes>
+
+    <Entities>
+        <Entity Type="PhoneNumber">+919123456789</Entity>
+        <Entity Type="PhoneNumber">+919876543211</Entity>
+        <Entity Type="PhoneNumber">+447700900456</Entity>
+        <Entity Type="PhoneNumber">+919999888777</Entity>
+        <Entity Type="Email">vikram.singh@protonmail.com</Entity>
+        <Entity Type="Email">maya.sharma@gmail.com</Entity>
+        <Entity Type="Email">raj.mehta@outlook.com</Entity>
+        <Entity Type="Email">arjun.patel@protonmail.com</Entity>
+        <Entity Type="CryptoAddress">0xA1B2C3D4E5F6789012345678901234567890ABCD</Entity>
+        <Entity Type="CryptoAddress">bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4</Entity>
+        <Entity Type="IPAddress">192.168.45.100</Entity>
+        <Entity Type="IPAddress">10.0.0.251</Entity>
+        <Entity Type="BankAccount">CH93-0076-2011-6238-5295-7</Entity>
+        <Entity Type="TransactionID">0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890</Entity>
+    </Entities>
+
+</UFDR_Report>

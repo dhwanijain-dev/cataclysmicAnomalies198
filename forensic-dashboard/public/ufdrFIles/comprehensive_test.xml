@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UFDR_Report>
+  <Header>
+    <Report_Version>2.1</Report_Version>
+    <Generated_Date>2025-01-15T14:22:30Z</Generated_Date>
+    <Tool_Name>Mobile Forensic Toolkit Pro</Tool_Name>
+    <Tool_Version>3.8.2</Tool_Version>
+    <Case_Number>CASE-2025-0315</Case_Number>
+    <Examiner>Agent Sarah Chen</Examiner>
+    <Organization>Digital Crimes Unit</Organization>
+  </Header>
+
+  <Metadata>
+    <DeviceInformation>
+      <DeviceName>Samsung Galaxy S23 Ultra</DeviceName>
+      <DeviceType>Mobile</DeviceType>
+      <IMEI>861234567890123</IMEI>
+      <PhoneNumber>+1555123456</PhoneNumber>
+      <Manufacturer>Samsung</Manufacturer>
+      <Model>SM-S918U</Model>
+      <OSVersion>Android 14.0</OSVersion>
+      <Storage>256GB</Storage>
+      <RAM>12GB</RAM>
+      <SerialNumber>RF8NC8K3PQB</SerialNumber>
+      <LastBootTime>2025-01-14T08:30:15Z</LastBootTime>
+      <Timezone>America/New_York</Timezone>
+      <RootAccess>false</RootAccess>
+      <EncryptionStatus>Enabled</EncryptionStatus>
+      <LockScreenType>Pattern + Fingerprint</LockScreenType>
+    </DeviceInformation>
+
+    <ExtractionInfo>
+      <ExtractionDate>2025-01-15T14:00:00Z</ExtractionDate>
+      <ExtractionMethod>ADB + Physical</ExtractionMethod>
+      <DataIntegrity>Verified</DataIntegrity>
+      <HashValue>sha256:a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6</HashValue>
+    </ExtractionInfo>
+  </Metadata>
+
+  <Communications>
+    <Messages>
+      <!-- Drug-related communications -->
+      <Message>
+        <ID>MSG_001</ID>
+        <Platform>WhatsApp</Platform>
+        <ConversationID>+1234567890</ConversationID>
+        <ParticipantName>Mike "The Supplier" Rodriguez</ParticipantName>
+        <ParticipantNumber>+1234567890</ParticipantNumber>
+        <Message>Got the new batch. 5 keys of premium white available. Price per key is 50K. Quality guaranteed like always.</Message>
+        <Timestamp>2025-01-10T22:15:30Z</Timestamp>
+        <Direction>incoming</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <Message>
+        <ID>MSG_002</ID>
+        <Platform>WhatsApp</Platform>
+        <ConversationID>+1234567890</ConversationID>
+        <ParticipantName>Mike "The Supplier" Rodriguez</ParticipantName>
+        <ParticipantNumber>+1234567890</ParticipantNumber>
+        <Message>I need 2 keys. Same spot as usual? Will bring cash in duffel bag. Make sure your boys are armed - heard rumors about DEA surveillance.</Message>
+        <Timestamp>2025-01-10T22:18:45Z</Timestamp>
+        <Direction>outgoing</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <!-- Cryptocurrency transactions -->
+      <Message>
+        <ID>MSG_003</ID>
+        <Platform>Signal</Platform>
+        <ConversationID>+1555998877</ConversationID>
+        <ParticipantName>Alex Crypto</ParticipantName>
+        <ParticipantNumber>+1555998877</ParticipantNumber>
+        <Message>Just sent 15.7 BTC to your address bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4. Transaction ID: a1b2c3d4e5f6789012345678901234567890abcdef. Confirm receipt.</Message>
+        <Timestamp>2025-01-12T14:30:22Z</Timestamp>
+        <Direction>incoming</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <Message>
+        <ID>MSG_004</ID>
+        <Platform>Signal</Platform>
+        <ConversationID>+1555998877</ConversationID>
+        <ParticipantName>Alex Crypto</ParticipantName>
+        <ParticipantNumber>+1555998877</ParticipantNumber>
+        <Message>Confirmed. Also set up the ETH wallet: 0x742d35Cc6C8589cb5D8f8a9F7e2a7c0D5e3F4A1B. Will use this for the dark web marketplace transactions. Monero address: 47C5F7D8A2B3E6F9A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B0C1D2E3F4</Message>
+        <Timestamp>2025-01-12T14:35:15Z</Timestamp>
+        <Direction>outgoing</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <!-- Money laundering discussion -->
+      <Message>
+        <ID>MSG_005</ID>
+        <Platform>Telegram</Platform>
+        <ConversationID>@CleanCashGroup</ConversationID>
+        <ParticipantName>Financial Cleaner</ParticipantName>
+        <ParticipantNumber>+1555777888</ParticipantNumber>
+        <Message>Need to wash 2.5 million through the crypto exchanges. Split it: 800K through Binance, 900K through Coinbase, rest through smaller DEXs. Use the shell companies we discussed.</Message>
+        <Timestamp>2025-01-13T16:45:00Z</Timestamp>
+        <Direction>outgoing</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <!-- Weapons trafficking -->
+      <Message>
+        <ID>MSG_006</ID>
+        <Platform>WhatsApp</Platform>
+        <ConversationID>+1666555444</ConversationID>
+        <ParticipantName>Tony "Iron" Vitale</ParticipantName>
+        <ParticipantNumber>+1666555444</ParticipantNumber>
+        <Message>Got 50 AR-15s and 200 Glocks coming in from Mexico next week. Price list: AR-15 = $2,500 each, Glock = $800 each. Also have suppressors and armor-piercing rounds.</Message>
+        <Timestamp>2025-01-11T20:30:00Z</Timestamp>
+        <Direction>incoming</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <!-- Human trafficking coordination -->
+      <Message>
+        <ID>MSG_007</ID>
+        <Platform>Signal</Platform>
+        <ConversationID>+1333222111</ConversationID>
+        <ParticipantName>Nina Transport</ParticipantName>
+        <ParticipantNumber>+1333222111</ParticipantNumber>
+        <Message>12 girls arriving from Eastern Europe tomorrow. Ages 18-24. Documents are clean. $50K per head. Safe house address: 1247 Maple Street, warehouse district.</Message>
+        <Timestamp>2025-01-14T11:20:00Z</Timestamp>
+        <Direction>incoming</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>true</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <!-- Dark web marketplace communications -->
+      <Message>
+        <ID>MSG_008</ID>
+        <Platform>WhatsApp</Platform>
+        <ConversationID>+1888999000</ConversationID>
+        <ParticipantName>DarkMarket Admin</ParticipantName>
+        <ParticipantNumber>+1888999000</ParticipantNumber>
+        <Message>Silk Road 3.0 is back online. New .onion address: darkmarket7x3f2a8b.onion. Tor browser only. Bitcoin and Monero accepted. Vendors needed for pharmaceuticals section.</Message>
+        <Timestamp>2025-01-09T19:45:00Z</Timestamp>
+        <Direction>incoming</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <!-- Legitimate communications for contrast -->
+      <Message>
+        <ID>MSG_009</ID>
+        <Platform>WhatsApp</Platform>
+        <ConversationID>+1555000111</ConversationID>
+        <ParticipantName>Mom</ParticipantName>
+        <ParticipantNumber>+1555000111</ParticipantNumber>
+        <Message>Don't forget dinner tonight at 7 PM. Your sister is bringing the kids. Love you!</Message>
+        <Timestamp>2025-01-14T15:30:00Z</Timestamp>
+        <Direction>incoming</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <Message>
+        <ID>MSG_010</ID>
+        <Platform>Signal</Platform>
+        <ConversationID>+1555998877</ConversationID>
+        <ParticipantName>Alex Crypto</ParticipantName>
+        <ParticipantNumber>+1555998877</ParticipantNumber>
+        <Message>Meeting tonight at warehouse. Bring the USB drives with the wallet seeds. Delete this message after reading. Operation Phoenix is a go.</Message>
+        <Timestamp>2025-01-14T18:45:00Z</Timestamp>
+        <Direction>incoming</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>true</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <!-- More drug-related evidence -->
+      <Message>
+        <ID>MSG_011</ID>
+        <Platform>WhatsApp</Platform>
+        <ConversationID>+1234567890</ConversationID>
+        <ParticipantName>Mike "The Supplier" Rodriguez</ParticipantName>
+        <ParticipantNumber>+1234567890</ParticipantNumber>
+        <Message>Lab results came back clean. 98% purity on the cocaine. Fentanyl shipment from China delayed until next month. Heroin prices going up 20% due to supply issues.</Message>
+        <Timestamp>2025-01-13T10:15:00Z</Timestamp>
+        <Direction>incoming</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+
+      <!-- Financial fraud evidence -->
+      <Message>
+        <ID>MSG_012</ID>
+        <Platform>Telegram</Platform>
+        <ConversationID>@FraudMasters</ConversationID>
+        <ParticipantName>Credit Card King</ParticipantName>
+        <ParticipantNumber>+1777888999</ParticipantNumber>
+        <Message>Fresh credit card dumps available. 500 cards with CVV, ZIP, full billing info. Mostly platinum and gold cards. $150 per card or $60K for the full batch.</Message>
+        <Timestamp>2025-01-12T09:30:00Z</Timestamp>
+        <Direction>incoming</Direction>
+        <MessageType>text</MessageType>
+        <IsDeleted>false</IsDeleted>
+        <ReadStatus>read</ReadStatus>
+        <DeliveryStatus>delivered</DeliveryStatus>
+      </Message>
+    </Messages>
+
+    <Calls>
+      <!-- Suspicious call patterns -->
+      <Call>
+        <ID>CALL_001</ID>
+        <ContactName>Mike "The Supplier" Rodriguez</ContactName>
+        <PhoneNumber>+1234567890</PhoneNumber>
+        <CallType>incoming</CallType>
+        <Timestamp>2025-01-10T22:10:00Z</Timestamp>
+        <Duration>127</Duration>
+        <CallStatus>answered</CallStatus>
+      </Call>
+
+      <Call>
+        <ID>CALL_002</ID>
+        <ContactName>Alex Crypto</ContactName>
+        <PhoneNumber>+1555998877</PhoneNumber>
+        <CallType>outgoing</CallType>
+        <Timestamp>2025-01-12T14:25:00Z</Timestamp>
+        <Duration>312</Duration>
+        <CallStatus>answered</CallStatus>
+      </Call>
+
+      <Call>
+        <ID>CALL_003</ID>
+        <ContactName>Financial Cleaner</ContactName>
+        <PhoneNumber>+1555777888</PhoneNumber>
+        <CallType>incoming</CallType>
+        <Timestamp>2025-01-13T16:40:00Z</Timestamp>
+        <Duration>89</Duration>
+        <CallStatus>answered</CallStatus>
+      </Call>
+
+      <Call>
+        <ID>CALL_004</ID>
+        <ContactName>Tony "Iron" Vitale</ContactName>
+        <PhoneNumber>+1666555444</PhoneNumber>
+        <CallType>outgoing</CallType>
+        <Timestamp>2025-01-11T20:15:00Z</Timestamp>
+        <Duration>245</Duration>
+        <CallStatus>answered</CallStatus>
+      </Call>
+
+      <Call>
+        <ID>CALL_005</ID>
+        <ContactName>Nina Transport</ContactName>
+        <PhoneNumber>+1333222111</PhoneNumber>
+        <CallType>incoming</CallType>
+        <Timestamp>2025-01-14T11:15:00Z</Timestamp>
+        <Duration>156</Duration>
+        <CallStatus>answered</CallStatus>
+      </Call>
+
+      <!-- Frequent calls to suspicious numbers -->
+      <Call>
+        <ID>CALL_006</ID>
+        <ContactName>Unknown</ContactName>
+        <PhoneNumber>+52555123456</PhoneNumber>
+        <CallType>outgoing</CallType>
+        <Timestamp>2025-01-13T08:30:00Z</Timestamp>
+        <Duration>45</Duration>
+        <CallStatus>answered</CallStatus>
+      </Call>
+
+      <Call>
+        <ID>CALL_007</ID>
+        <ContactName>Unknown</ContactName>
+        <PhoneNumber>+86138123456</PhoneNumber>
+        <CallType>incoming</CallType>
+        <Timestamp>2025-01-12T23:45:00Z</Timestamp>
+        <Duration>234</Duration>
+        <CallStatus>answered</CallStatus>
+      </Call>
+
+      <!-- Legitimate calls -->
+      <Call>
+        <ID>CALL_008</ID>
+        <ContactName>Mom</ContactName>
+        <PhoneNumber>+1555000111</PhoneNumber>
+        <CallType>outgoing</CallType>
+        <Timestamp>2025-01-14T12:30:00Z</Timestamp>
+        <Duration>678</Duration>
+        <CallStatus>answered</CallStatus>
+      </Call>
+    </Calls>
+  </Communications>
+
+  <Contacts>
+    <!-- Criminal associates -->
+    <Contact>
+      <ID>CONTACT_001</ID>
+      <Name>Mike "The Supplier" Rodriguez</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1234567890</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>mrodriguez.supply@protonmail.com</Email>
+      </Emails>
+      <Organization>Import/Export LLC</Organization>
+      <Notes>Supplier - Premium Quality</Notes>
+    </Contact>
+
+    <Contact>
+      <ID>CONTACT_002</ID>
+      <Name>Alex Crypto</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1555998877</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>acrypto2025@tutanota.com</Email>
+      </Emails>
+      <Organization>Blockchain Consulting</Organization>
+      <Notes>Crypto specialist - offshore accounts</Notes>
+    </Contact>
+
+    <Contact>
+      <ID>CONTACT_003</ID>
+      <Name>Financial Cleaner</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1555777888</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>cleaner.finance@secure.me</Email>
+      </Emails>
+      <Organization>Shell Companies Inc</Organization>
+      <Notes>Money washing expert</Notes>
+    </Contact>
+
+    <Contact>
+      <ID>CONTACT_004</ID>
+      <Name>Tony "Iron" Vitale</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1666555444</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>tvitale.security@protonmail.com</Email>
+      </Emails>
+      <Organization>Security Solutions LLC</Organization>
+      <Notes>Hardware supplier</Notes>
+    </Contact>
+
+    <Contact>
+      <ID>CONTACT_005</ID>
+      <Name>Nina Transport</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1333222111</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>n.transport@guerrillamail.com</Email>
+      </Emails>
+      <Organization>Logistics International</Organization>
+      <Notes>Transportation coordinator</Notes>
+    </Contact>
+
+    <Contact>
+      <ID>CONTACT_006</ID>
+      <Name>DarkMarket Admin</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1888999000</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>admin@darkmarket.onion</Email>
+      </Emails>
+      <Organization>Digital Services</Organization>
+      <Notes>Online marketplace management</Notes>
+    </Contact>
+
+    <Contact>
+      <ID>CONTACT_007</ID>
+      <Name>Credit Card King</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1777888999</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>cardking@protonmail.com</Email>
+      </Emails>
+      <Organization>Financial Services</Organization>
+      <Notes>Payment processing specialist</Notes>
+    </Contact>
+
+    <!-- Legitimate contacts -->
+    <Contact>
+      <ID>CONTACT_008</ID>
+      <Name>Mom</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1555000111</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>mom@gmail.com</Email>
+      </Emails>
+      <Organization></Organization>
+      <Notes>Family</Notes>
+    </Contact>
+
+    <Contact>
+      <ID>CONTACT_009</ID>
+      <Name>Dr. Sarah Johnson</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1555123789</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>sjohnson@medicalpractice.com</Email>
+      </Emails>
+      <Organization>General Medical Practice</Organization>
+      <Notes>Personal physician</Notes>
+    </Contact>
+
+    <Contact>
+      <ID>CONTACT_010</ID>
+      <Name>Bank Manager</Name>
+      <PhoneNumbers>
+        <PhoneNumber>+1555456789</PhoneNumber>
+      </PhoneNumbers>
+      <Emails>
+        <Email>manager@firstnationalbank.com</Email>
+      </Emails>
+      <Organization>First National Bank</Organization>
+      <Notes>Personal banking</Notes>
+    </Contact>
+  </Contacts>
+
+  <Media>
+    <!-- Suspicious media files -->
+    <MediaFile>
+      <ID>MEDIA_001</ID>
+      <FileName>drug_lab_photos.jpg</FileName>
+      <FilePath>/storage/emulated/0/DCIM/Camera/IMG_20250110_220000.jpg</FilePath>
+      <FileSize>4251648</FileSize>
+      <CreationDate>2025-01-10T22:00:00Z</CreationDate>
+      <ModificationDate>2025-01-10T22:00:00Z</ModificationDate>
+      <MimeType>image/jpeg</MimeType>
+      <MD5Hash>7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d</MD5Hash>
+      <GPS_Latitude>40.7128</GPS_Latitude>
+      <GPS_Longitude>-74.0060</GPS_Longitude>
+      <GPS_Location>New York, NY</GPS_Location>
+      <ExifData>
+        <Camera>Samsung Galaxy S23 Ultra</Camera>
+        <Timestamp>2025-01-10T22:00:00Z</Timestamp>
+      </ExifData>
+    </MediaFile>
+
+    <MediaFile>
+      <ID>MEDIA_002</ID>
+      <FileName>crypto_wallet_screenshot.png</FileName>
+      <FilePath>/storage/emulated/0/Screenshots/Screenshot_20250112_143000.png</FilePath>
+      <FileSize>1024768</FileSize>
+      <CreationDate>2025-01-12T14:30:00Z</CreationDate>
+      <ModificationDate>2025-01-12T14:30:00Z</ModificationDate>
+      <MimeType>image/png</MimeType>
+      <MD5Hash>1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d</MD5Hash>
+    </MediaFile>
+
+    <MediaFile>
+      <ID>MEDIA_003</ID>
+      <FileName>weapons_inventory.mp4</FileName>
+      <FilePath>/storage/emulated/0/Movies/VID_20250111_203000.mp4</FilePath>
+      <FileSize>157286400</FileSize>
+      <CreationDate>2025-01-11T20:30:00Z</CreationDate>
+      <ModificationDate>2025-01-11T20:30:00Z</ModificationDate>
+      <MimeType>video/mp4</MimeType>
+      <MD5Hash>9z8y7x6w5v4u3t2s1r0q9p8o7n6m5l4k</MD5Hash>
+      <GPS_Latitude>25.7617</GPS_Latitude>
+      <GPS_Longitude>-80.1918</GPS_Longitude>
+      <GPS_Location>Miami, FL</GPS_Location>
+      <Duration>180</Duration>
+    </MediaFile>
+
+    <MediaFile>
+      <ID>MEDIA_004</ID>
+      <FileName>money_counting.mp4</FileName>
+      <FilePath>/storage/emulated/0/DCIM/Camera/VID_20250113_164500.mp4</FilePath>
+      <FileSize>89478400</FileSize>
+      <CreationDate>2025-01-13T16:45:00Z</CreationDate>
+      <ModificationDate>2025-01-13T16:45:00Z</ModificationDate>
+      <MimeType>video/mp4</MimeType>
+      <MD5Hash>a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4</MD5Hash>
+      <Duration>45</Duration>
+    </MediaFile>
+
+    <MediaFile>
+      <ID>MEDIA_005</ID>
+      <FileName>dark_web_access.jpg</FileName>
+      <FilePath>/storage/emulated/0/Pictures/Screenshot_tor_browser.jpg</FilePath>
+      <FileSize>512000</FileSize>
+      <CreationDate>2025-01-09T19:45:00Z</CreationDate>
+      <ModificationDate>2025-01-09T19:45:00Z</ModificationDate>
+      <MimeType>image/jpeg</MimeType>
+      <MD5Hash>b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6</MD5Hash>
+    </MediaFile>
+
+    <!-- Legitimate media files -->
+    <MediaFile>
+      <ID>MEDIA_006</ID>
+      <FileName>family_dinner.jpg</FileName>
+      <FilePath>/storage/emulated/0/DCIM/Camera/IMG_20250114_193000.jpg</FilePath>
+      <FileSize>3145728</FileSize>
+      <CreationDate>2025-01-14T19:30:00Z</CreationDate>
+      <ModificationDate>2025-01-14T19:30:00Z</ModificationDate>
+      <MimeType>image/jpeg</MimeType>
+      <MD5Hash>f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6</MD5Hash>
+    </MediaFile>
+  </Media>
+
+  <Applications>
+    <!-- Suspicious applications -->
+    <Application>
+      <AppName>Tor Browser</AppName>
+      <PackageName>org.torproject.torbrowser</PackageName>
+      <Version>12.0.2</Version>
+      <InstallDate>2025-01-05T10:30:00Z</InstallDate>
+      <LastUsed>2025-01-14T18:45:00Z</LastUsed>
+      <Category>Privacy/Dark Web</Category>
+    </Application>
+
+    <Application>
+      <AppName>Signal Private Messenger</AppName>
+      <PackageName>org.thoughtcrime.securesms</PackageName>
+      <Version>6.42.1</Version>
+      <InstallDate>2024-12-15T14:20:00Z</InstallDate>
+      <LastUsed>2025-01-14T18:50:00Z</LastUsed>
+      <Category>Encrypted Messaging</Category>
+    </Application>
+
+    <Application>
+      <AppName>Coinbase Wallet</AppName>
+      <PackageName>org.toshi</PackageName>
+      <Version>3.75.0</Version>
+      <InstallDate>2024-11-20T09:15:00Z</InstallDate>
+      <LastUsed>2025-01-12T14:35:00Z</LastUsed>
+      <Category>Cryptocurrency</Category>
+    </Application>
+
+    <Application>
+      <AppName>Binance</AppName>
+      <PackageName>com.binance.dev</PackageName>
+      <Version>2.58.0</Version>
+      <InstallDate>2024-11-18T16:45:00Z</InstallDate>
+      <LastUsed>2025-01-13T10:20:00Z</LastUsed>
+      <Category>Cryptocurrency</Category>
+    </Application>
+
+    <Application>
+      <AppName>ProtonMail</AppName>
+      <PackageName>ch.protonmail.android</PackageName>
+      <Version>3.0.17</Version>
+      <InstallDate>2024-10-30T11:00:00Z</InstallDate>
+      <LastUsed>2025-01-14T09:30:00Z</LastUsed>
+      <Category>Encrypted Email</Category>
+    </Application>
+
+    <Application>
+      <AppName>VPN Shield</AppName>
+      <PackageName>com.vpnshield.secure</PackageName>
+      <Version>4.2.1</Version>
+      <InstallDate>2024-12-01T13:45:00Z</InstallDate>
+      <LastUsed>2025-01-14T18:40:00Z</LastUsed>
+      <Category>VPN/Privacy</Category>
+    </Application>
+
+    <!-- Legitimate applications -->
+    <Application>
+      <AppName>WhatsApp Messenger</AppName>
+      <PackageName>com.whatsapp</PackageName>
+      <Version>2.23.25.84</Version>
+      <InstallDate>2024-08-15T12:00:00Z</InstallDate>
+      <LastUsed>2025-01-14T20:15:00Z</LastUsed>
+      <Category>Messaging</Category>
+    </Application>
+
+    <Application>
+      <AppName>Gmail</AppName>
+      <PackageName>com.google.android.gm</PackageName>
+      <Version>2024.01.28.605070810</Version>
+      <InstallDate>2024-01-01T00:00:00Z</InstallDate>
+      <LastUsed>2025-01-14T16:20:00Z</LastUsed>
+      <Category>Email</Category>
+    </Application>
+  </Applications>
+
+  <WebHistory>
+    <!-- Dark web and criminal sites -->
+    <Website>
+      <URL>http://darkmarket7x3f2a8b.onion</URL>
+      <Title>Dark Market 3.0 - Premium Goods</Title>
+      <VisitDate>2025-01-09T19:50:00Z</VisitDate>
+      <VisitCount>23</VisitCount>
+      <Browser>Tor Browser</Browser>
+    </Website>
+
+    <Website>
+      <URL>http://drugsupply4x2b8c9d.onion</URL>
+      <Title>Premium Supply Chain</Title>
+      <VisitDate>2025-01-10T21:30:00Z</VisitDate>
+      <VisitCount>8</VisitCount>
+      <Browser>Tor Browser</Browser>
+    </Website>
+
+    <Website>
+      <URL>https://bitcoinmixer.io</URL>
+      <Title>Bitcoin Mixer - Anonymous Transactions</Title>
+      <VisitDate>2025-01-12T15:20:00Z</VisitDate>
+      <VisitCount>15</VisitCount>
+      <Browser>Chrome</Browser>
+    </Website>
+
+    <Website>
+      <URL>https://monero-wallet.com</URL>
+      <Title>Monero Web Wallet</Title>
+      <VisitDate>2025-01-12T15:25:00Z</VisitDate>
+      <VisitCount>12</VisitCount>
+      <Browser>Chrome</Browser>
+    </Website>
+
+    <Website>
+      <URL>http://weapons4sale2x8b.onion</URL>
+      <Title>Arsenal Direct</Title>
+      <VisitDate>2025-01-11T20:45:00Z</VisitDate>
+      <VisitCount>5</VisitCount>
+      <Browser>Tor Browser</Browser>
+    </Website>
+
+    <!-- Legitimate websites -->
+    <Website>
+      <URL>https://www.google.com</URL>
+      <Title>Google</Title>
+      <VisitDate>2025-01-14T14:30:00Z</VisitDate>
+      <VisitCount>156</VisitCount>
+      <Browser>Chrome</Browser>
+    </Website>
+
+    <Website>
+      <URL>https://www.youtube.com</URL>
+      <Title>YouTube</Title>
+      <VisitDate>2025-01-14T19:45:00Z</VisitDate>
+      <VisitCount>89</VisitCount>
+      <Browser>Chrome</Browser>
+    </Website>
+  </WebHistory>
+
+  <NetworkConnections>
+    <!-- Suspicious network activity -->
+    <Connection>
+      <RemoteIP>185.220.101.15</RemoteIP>
+      <RemoteHost>tor-relay.darkweb.org</RemoteHost>
+      <Port>9001</Port>
+      <Protocol>TCP</Protocol>
+      <Timestamp>2025-01-14T18:45:00Z</Timestamp>
+      <Direction>outgoing</Direction>
+      <Application>Tor Browser</Application>
+      <BytesTransferred>2048576</BytesTransferred>
+    </Connection>
+
+    <Connection>
+      <RemoteIP>192.42.116.15</RemoteIP>
+      <RemoteHost>crypto-exchange.onion</RemoteHost>
+      <Port>443</Port>
+      <Protocol>TCP</Protocol>
+      <Timestamp>2025-01-12T14:30:00Z</Timestamp>
+      <Direction>outgoing</Direction>
+      <Application>Tor Browser</Application>
+      <BytesTransferred>512000</BytesTransferred>
+    </Connection>
+
+    <Connection>
+      <RemoteIP>104.28.2.80</RemoteIP>
+      <RemoteHost>binance.com</RemoteHost>
+      <Port>443</Port>
+      <Protocol>HTTPS</Protocol>
+      <Timestamp>2025-01-13T10:20:00Z</Timestamp>
+      <Direction>outgoing</Direction>
+      <Application>Binance App</Application>
+      <BytesTransferred>1024000</BytesTransferred>
+    </Connection>
+  </NetworkConnections>
+
+  <FileSystem>
+    <!-- Suspicious files -->
+    <File>
+      <FileName>wallet_seeds.txt</FileName>
+      <FilePath>/storage/emulated/0/Documents/Private/wallet_seeds.txt</FilePath>
+      <FileSize>2048</FileSize>
+      <CreationDate>2025-01-12T14:00:00Z</CreationDate>
+      <ModificationDate>2025-01-12T16:30:00Z</ModificationDate>
+      <MD5Hash>a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</MD5Hash>
+      <IsEncrypted>true</IsEncrypted>
+      <IsHidden>true</IsHidden>
+    </File>
+
+    <File>
+      <FileName>contact_list_encrypted.gpg</FileName>
+      <FilePath>/storage/emulated/0/.hidden/contact_list_encrypted.gpg</FilePath>
+      <FileSize>8192</FileSize>
+      <CreationDate>2025-01-08T09:00:00Z</CreationDate>
+      <ModificationDate>2025-01-14T10:00:00Z</ModificationDate>
+      <MD5Hash>f1e2d3c4b5a6f7e8d9c0b1a2f3e4d5c6</MD5Hash>
+      <IsEncrypted>true</IsEncrypted>
+      <IsHidden>true</IsHidden>
+    </File>
+
+    <File>
+      <FileName>transaction_records.xlsx</FileName>
+      <FilePath>/storage/emulated/0/Downloads/transaction_records.xlsx</FilePath>
+      <FileSize>4096000</FileSize>
+      <CreationDate>2025-01-13T16:00:00Z</CreationDate>
+      <ModificationDate>2025-01-13T17:00:00Z</ModificationDate>
+      <MD5Hash>b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7</MD5Hash>
+      <IsEncrypted>false</IsEncrypted>
+      <IsHidden>false</IsHidden>
+    </File>
+  </FileSystem>
+
+  <LocationData>
+    <!-- Suspicious locations -->
+    <Location>
+      <Latitude>40.7128</Latitude>
+      <Longitude>-74.0060</Longitude>
+      <Address>Warehouse District, 1247 Maple Street, New York, NY</Address>
+      <Timestamp>2025-01-10T22:00:00Z</Timestamp>
+      <Accuracy>5</Accuracy>
+      <Source>GPS</Source>
+      <Duration>180</Duration>
+    </Location>
+
+    <Location>
+      <Latitude>25.7617</Latitude>
+      <Longitude>-80.1918</Longitude>
+      <Address>Port of Miami, Warehouse 15B, Miami, FL</Address>
+      <Timestamp>2025-01-11T20:30:00Z</Timestamp>
+      <Accuracy>3</Accuracy>
+      <Source>GPS</Source>
+      <Duration>240</Duration>
+    </Location>
+
+    <Location>
+      <Latitude>32.7767</Latitude>
+      <Longitude>-96.7970</Longitude>
+      <Address>Industrial Zone, Dallas, TX</Address>
+      <Timestamp>2025-01-13T16:45:00Z</Timestamp>
+      <Accuracy>8</Accuracy>
+      <Source>Cell Tower</Source>
+      <Duration>120</Duration>
+    </Location>
+
+    <!-- Legitimate locations -->
+    <Location>
+      <Latitude>40.7589</Latitude>
+      <Longitude>-73.9851</Longitude>
+      <Address>Times Square, New York, NY</Address>
+      <Timestamp>2025-01-14T19:30:00Z</Timestamp>
+      <Accuracy>10</Accuracy>
+      <Source>WiFi</Source>
+      <Duration>90</Duration>
+    </Location>
+  </LocationData>
+</UFDR_Report>

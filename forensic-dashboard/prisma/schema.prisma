@@ -1,0 +1,180 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Case {
+  id          String   @id @default(cuid())
+  caseNumber  String   @unique
+  caseName    String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  devices     Device[]
+  queries     Query[]
+  reports     Report[]
+}
+
+model Device {
+  id            String   @id @default(cuid())
+  deviceName    String
+  deviceType    String
+  imei          String?
+  phoneNumber   String?
+  manufacturer  String?
+  model         String?
+  osVersion     String?
+  extractionDate DateTime
+  createdAt     DateTime @default(now())
+  
+  caseId        String
+  case          Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  
+  chats         Chat[]
+  calls         Call[]
+  contacts      Contact[]
+  media         Media[]
+  apps          App[]
+  locations     Location[]
+}
+
+model Chat {
+  id            String   @id @default(cuid())
+  platform      String   // WhatsApp, Telegram, SMS, etc.
+  conversationId String
+  participantName String?
+  participantNumber String?
+  message       String   @db.Text
+  timestamp     DateTime
+  direction     String   // incoming/outgoing
+  messageType   String   // text/image/video/audio/document
+  attachmentPath String?
+  isDeleted     Boolean  @default(false)
+  embedding     Float[]  // Vector embedding for semantic search
+  
+  deviceId      String
+  device        Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@index([participantNumber])
+  @@index([timestamp])
+  @@index([platform])
+}
+
+model Call {
+  id            String   @id @default(cuid())
+  callType      String   // incoming/outgoing/missed
+  phoneNumber   String
+  contactName   String?
+  duration      Int      // in seconds
+  timestamp     DateTime
+  
+  deviceId      String
+  device        Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@index([phoneNumber])
+  @@index([timestamp])
+}
+
+model Contact {
+  id            String   @id @default(cuid())
+  name          String
+  phoneNumbers  String[] // Array of phone numbers
+  emails        String[]
+  organization  String?
+  notes         String?
+  
+  deviceId      String
+  device        Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@index([name])
+}
+
+model Media {
+  id            String   @id @default(cuid())
+  mediaType     String   // image/video/audio
+  fileName      String
+  filePath      String
+  fileSize      Int
+  mimeType      String
+  createdDate   DateTime
+  modifiedDate  DateTime
+  latitude      Float?
+  longitude     Float?
+  thumbnailPath String?
+  metadata      Json?
+  
+  deviceId      String
+  device        Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@index([mediaType])
+  @@index([createdDate])
+}
+
+model App {
+  id            String   @id @default(cuid())
+  appName       String
+  packageName   String
+  version       String?
+  installDate   DateTime?
+  
+  deviceId      String
+  device        Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+}
+
+model Location {
+  id            String   @id @default(cuid())
+  latitude      Float
+  longitude     Float
+  accuracy      Float?
+  timestamp     DateTime
+  source        String?  // GPS/Network/WiFi
+  
+  deviceId      String
+  device        Device   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@index([timestamp])
+}
+
+model Query {
+  id            String   @id @default(cuid())
+  queryText     String   @db.Text
+  queryType     String   // natural_language/structured
+  results       Json
+  resultCount   Int
+  executionTime Int      // in milliseconds
+  createdAt     DateTime @default(now())
+  
+  caseId        String
+  case          Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}
+
+model Report {
+  id            String   @id @default(cuid())
+  reportName    String
+  reportType    String
+  content       Json
+  generatedAt   DateTime @default(now())
+  
+  caseId        String
+  case          Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}
+
+model Entity {
+  id            String   @id @default(cuid())
+  entityType    String   // phone_number/email/crypto_address/ip_address/person
+  value         String
+  occurrences   Int      @default(1)
+  contexts      Json[]   // Where this entity appears
+  createdAt     DateTime @default(now())
+  
+  @@unique([entityType, value])
+  @@index([entityType])
+  @@index([value])
+}

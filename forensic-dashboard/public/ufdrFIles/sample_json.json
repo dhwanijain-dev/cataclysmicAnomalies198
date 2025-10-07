@@ -1,0 +1,163 @@
+{
+  "UFDR_Report": {
+    "reportID": "UFDR-20251006-XYZ-001",
+    "extractionDate": "2025-10-06T14:30:00Z",
+    "deviceInfo": {
+      "model": "Samsung Galaxy S22",
+      "imei": "356789012345678",
+      "os": "Android 13",
+      "owner": "Rohan Sharma"
+    },
+    "contacts": [
+      {
+        "id": "1",
+        "name": "Anil Kumar",
+        "phoneNumber": "+919876543210",
+        "email": "anil.k@email.com"
+      },
+      {
+        "id": "2",
+        "name": "Sunita Singh",
+        "phoneNumber": "+918765432109",
+        "email": null
+      },
+      {
+        "id": "3",
+        "name": "Crypto Dealer",
+        "phoneNumber": "+917654321098",
+        "email": null
+      },
+      {
+        "id": "4",
+        "name": "John Doe",
+        "phoneNumber": "+14155552671",
+        "email": "j.doe@example.com"
+      },
+      {
+        "id": "5",
+        "name": null,
+        "phoneNumber": "+442079460958",
+        "email": null
+      }
+    ],
+    "callLogs": [
+      {
+        "callId": "C001",
+        "direction": "Outgoing",
+        "number": "+14155552671",
+        "name": "John Doe",
+        "timestamp": "2025-09-15T11:05:21Z",
+        "durationSeconds": 345
+      },
+      {
+        "callId": "C002",
+        "direction": "Incoming",
+        "number": "+917654321098",
+        "name": "Crypto Dealer",
+        "timestamp": "2025-09-20T18:30:15Z",
+        "durationSeconds": 120
+      },
+      {
+        "callId": "C003",
+        "direction": "Missed",
+        "number": "+919876543210",
+        "name": "Anil Kumar",
+        "timestamp": "2025-09-22T09:15:00Z",
+        "durationSeconds": 0
+      },
+      {
+        "callId": "C004",
+        "direction": "Outgoing",
+        "number": "+442079460958",
+        "name": null,
+        "timestamp": "2025-09-25T14:00:55Z",
+        "durationSeconds": 512
+      }
+    ],
+    "messages": [
+      {
+        "conversationId": "MSG01",
+        "participantName": "Crypto Dealer",
+        "participantNumber": "+917654321098",
+        "chat": [
+          {
+            "msgId": "M01A",
+            "direction": "Outgoing",
+            "timestamp": "2025-09-20T18:40:02Z",
+            "content": "Hey, need to move some funds. Send me the wallet address."
+          },
+          {
+            "msgId": "M01B",
+            "direction": "Incoming",
+            "timestamp": "2025-09-20T18:41:15Z",
+            "content": "Sure, use this BTC address: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
+          },
+          {
+            "msgId": "M01C",
+            "direction": "Outgoing",
+            "timestamp": "2025-09-20T18:55:30Z",
+            "content": "Okay, sent. Confirm when you receive."
+          }
+        ]
+      },
+      {
+        "conversationId": "MSG02",
+        "participantName": "John Doe",
+        "participantNumber": "+14155552671",
+        "chat": [
+          {
+            "msgId": "M02A",
+            "direction": "Incoming",
+            "timestamp": "2025-09-15T11:12:00Z",
+            "content": "The package has been shipped from the US port. Awaiting customs clearance."
+          },
+          {
+            "msgId": "M02B",
+            "direction": "Outgoing",
+            "timestamp": "2025-09-15T11:12:45Z",
+            "content": "Great. Let me know the tracking details."
+          }
+        ]
+      },
+      {
+        "conversationId": "MSG03",
+        "participantName": null,
+        "participantNumber": "+442079460958",
+        "chat": [
+          {
+            "msgId": "M03A",
+            "direction": "Incoming",
+            "timestamp": "2025-09-26T10:00:00Z",
+            "content": "Transaction complete. The ETH is in your wallet: 0xB79009eC5fACe54c57E3a016DBE46940"
+          }
+        ]
+      }
+    ],
+    "mediaFiles": [
+      {
+        "fileId": "F001",
+        "fileName": "IMG_20250918.jpg",
+        "filePath": "/DCIM/Camera/",
+        "creationDate": "2025-09-18T16:30:00Z",
+        "fileSize_KB": 4096,
+        "metadata": {
+          "type": "Image",
+          "geolocation": "22.7196° N, 75.8577° E",
+          "caption": "Meeting with Anil at the warehouse."
+        }
+      },
+      {
+        "fileId": "F002",
+        "fileName": "receipt.jpg",
+        "filePath": "/Downloads/",
+        "creationDate": "2025-09-21T12:00:00Z",
+        "fileSize_KB": 850,
+        "metadata": {
+          "type": "Image",
+          "geolocation": null,
+          "caption": "Proof of payment for the crypto transaction."
+        }
+      }
+    ]
+  }
+}

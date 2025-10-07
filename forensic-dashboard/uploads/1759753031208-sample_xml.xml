@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UFDR_Report reportID="UFDR-20251006-XYZ-001" extractionDate="2025-10-06T14:30:00Z">
+    <deviceInfo>
+        <model>Samsung Galaxy S22</model>
+        <imei>356789012345678</imei>
+        <os>Android 13</os>
+        <owner>Rohan Sharma</owner>
+    </deviceInfo>
+    <contacts>
+        <contact id="1">
+            <name>Anil Kumar</name>
+            <phoneNumber>+919876543210</phoneNumber>
+            <email>anil.k@email.com</email>
+        </contact>
+        <contact id="2">
+            <name>Sunita Singh</name>
+            <phoneNumber>+918765432109</phoneNumber>
+            <email/>
+        </contact>
+        <contact id="3">
+            <name>Crypto Dealer</name>
+            <phoneNumber>+917654321098</phoneNumber>
+            <email/>
+        </contact>
+        <contact id="4">
+            <name>John Doe</name>
+            <phoneNumber>+14155552671</phoneNumber>
+            <email>j.doe@example.com</email>
+        </contact>
+        <contact id="5">
+            <name/>
+            <phoneNumber>+442079460958</phoneNumber>
+            <email/>
+        </contact>
+    </contacts>
+    <callLogs>
+        <call callId="C001">
+            <direction>Outgoing</direction>
+            <number>+14155552671</number>
+            <name>John Doe</name>
+            <timestamp>2025-09-15T11:05:21Z</timestamp>
+            <durationSeconds>345</durationSeconds>
+        </call>
+        <call callId="C002">
+            <direction>Incoming</direction>
+            <number>+917654321098</number>
+            <name>Crypto Dealer</name>
+            <timestamp>2025-09-20T18:30:15Z</timestamp>
+            <durationSeconds>120</durationSeconds>
+        </call>
+        <call callId="C003">
+            <direction>Missed</direction>
+            <number>+919876543210</number>
+            <name>Anil Kumar</name>
+            <timestamp>2025-09-22T09:15:00Z</timestamp>
+            <durationSeconds>0</durationSeconds>
+        </call>
+        <call callId="C004">
+            <direction>Outgoing</direction>
+            <number>+442079460958</number>
+            <name/>
+            <timestamp>2025-09-25T14:00:55Z</timestamp>
+            <durationSeconds>512</durationSeconds>
+        </call>
+    </callLogs>
+    <messages>
+        <conversation conversationId="MSG01">
+            <participantName>Crypto Dealer</participantName>
+            <participantNumber>+917654321098</participantNumber>
+            <chat>
+                <message msgId="M01A">
+                    <direction>Outgoing</direction>
+                    <timestamp>2025-09-20T18:40:02Z</timestamp>
+                    <content>Hey, need to move some funds. Send me the wallet address.</content>
+                </message>
+                <message msgId="M01B">
+                    <direction>Incoming</direction>
+                    <timestamp>2025-09-20T18:41:15Z</timestamp>
+                    <content>Sure, use this BTC address: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</content>
+                </message>
+                <message msgId="M01C">
+                    <direction>Outgoing</direction>
+                    <timestamp>2025-09-20T18:55:30Z</timestamp>
+                    <content>Okay, sent. Confirm when you receive.</content>
+                </message>
+            </chat>
+        </conversation>
+        <conversation conversationId="MSG02">
+            <participantName>John Doe</participantName>
+            <participantNumber>+14155552671</participantNumber>
+            <chat>
+                <message msgId="M02A">
+                    <direction>Incoming</direction>
+                    <timestamp>2025-09-15T11:12:00Z</timestamp>
+                    <content>The package has been shipped from the US port. Awaiting customs clearance.</content>
+                </message>
+                <message msgId="M02B">
+                    <direction>Outgoing</direction>
+                    <timestamp>2025-09-15T11:12:45Z</timestamp>
+                    <content>Great. Let me know the tracking details.</content>
+                </message>
+            </chat>
+        </conversation>
+        <conversation conversationId="MSG03">
+            <participantName/>
+            <participantNumber>+442079460958</participantNumber>
+            <chat>
+                <message msgId="M03A">
+                    <direction>Incoming</direction>
+                    <timestamp>2025-09-26T10:00:00Z</timestamp>
+                    <content>Transaction complete. The ETH is in your wallet: 0xB79009eC5fACe54c57E3a016DBE46940</content>
+                </message>
+            </chat>
+        </conversation>
+    </messages>
+    <mediaFiles>
+        <file fileId="F001">
+            <fileName>IMG_20250918.jpg</fileName>
+            <filePath>/DCIM/Camera/</filePath>
+            <creationDate>2025-09-18T16:30:00Z</creationDate>
+            <fileSize_KB>4096</fileSize_KB>
+            <metadata>
+                <type>Image</type>
+                <geolocation>22.7196° N, 75.8577° E</geolocation>
+                <caption>Meeting with Anil at the warehouse.</caption>
+            </metadata>
+        </file>
+        <file fileId="F002">
+            <fileName>receipt.jpg</fileName>
+            <filePath>/Downloads/</filePath>
+            <creationDate>2025-09-21T12:00:00Z</creationDate>
+            <fileSize_KB>850</fileSize_KB>
+            <metadata>
+                <type>Image</type>
+                <geolocation/>
+                <caption>Proof of payment for the crypto transaction.</caption>
+            </metadata>
+        </file>
+    </mediaFiles>
+</UFDR_Report>
